@@ -1,4 +1,4 @@
-package module1;
+package module;
 
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -7,9 +7,9 @@ import java.net.UnknownHostException;
 
 import generic.RoverClientRunnable;
 
-public class ModuleOneClient extends RoverClientRunnable{
+public class APXSClient extends RoverClientRunnable{
 
-	public ModuleOneClient(int port, InetAddress host)
+	public APXSClient(int port, InetAddress host)
 			throws UnknownHostException {
 		super(port, host);
 	}
