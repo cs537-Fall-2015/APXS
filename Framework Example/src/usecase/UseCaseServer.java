@@ -18,7 +18,7 @@ public class UseCaseServer extends RoverServerRunnable{
 		// TODO Auto-generated method stub
 		try {			
 			while(true){				
-	            System.out.println("Server: Waiting for client request");	            
+	            System.out.println("Server: Waiting for client");	            
 				//creating socket and waiting for client connection
 	            getRoverServerSocket().openSocket();
 	            //read from socket to ObjectInputStream object
