@@ -10,7 +10,7 @@ public class MasterMain {
 	public static void main(String[] args) {
 
 		// Each module has its own port
-		int port_one = 9897;
+		int port_one = 9017;
 
 		try {
 
