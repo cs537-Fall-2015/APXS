@@ -1,4 +1,4 @@
-package usecase;
+package APXS.refs.usecase;
 
 import generic.RoverThreadHandler;
 
@@ -8,7 +8,7 @@ public class UseCaseMain {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		int port = 9897;
+		int port = 9017;
 		
 		try {
 			

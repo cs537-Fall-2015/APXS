@@ -1,4 +1,4 @@
-package module;
+package APXS.module;
 
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;

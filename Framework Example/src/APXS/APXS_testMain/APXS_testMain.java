@@ -1,16 +1,13 @@
-package main;
+package APXS.APXS_testMain;
 
-import generic.RoverThreadHandler;
-/*
-import module.APXSClient;
-import module.APXSServer;
-*/
 import java.io.IOException;
 
-public class MasterMain {
+import generic.RoverThreadHandler;
+import APXS.module.APXSClient;
+import APXS.module.APXSServer;
+
+public class APXS_testMain {
 	public static void main(String[] args) {
-/*
-		// Each module has its own port
 		int port_one = 9017;
 
 		try {
@@ -24,7 +21,7 @@ public class MasterMain {
 
 			// client one server sending messages to server
 			APXSClient clientOne = new APXSClient(port_one, null); // notice
-																	// port_two
+			// port_two
 			Thread client_1 = RoverThreadHandler.getRoverThreadHandler()
 					.getNewThread(clientOne);
 
@@ -35,6 +32,5 @@ public class MasterMain {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-*/
 	}
 }
