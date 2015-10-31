@@ -22,7 +22,7 @@ public class APXSClient extends RoverClientRunnable{
 		    Thread.sleep(5000);
 		    
 		    //Send 5 messages to the Server
-	        for(int i = 1; i < 6; i++){
+	        for(int i = 0; i < 5; i++){
 	            //write to socket using ObjectOutputStream
 	            outputToAnotherObject = new ObjectOutputStream(getRoverSocket().getNewSocket().getOutputStream());
 	            
@@ -30,7 +30,7 @@ public class APXSClient extends RoverClientRunnable{
 	            System.out.println("Module 1 Client: Sending request to Socket Server");
 	            System.out.println("=================================================");
 	            
-	            if(i == 5){
+	            if(i == 4){
 	            	outputToAnotherObject.writeObject("exit");
 	            }
 	            else {
@@ -45,7 +45,7 @@ public class APXSClient extends RoverClientRunnable{
 	            //close resources
 	            inputFromAnotherObject.close();
 	            outputToAnotherObject.close();
-	            Thread.sleep(4000);
+	            Thread.sleep(5000);
 	        }
 	        closeAll();
 		}	        

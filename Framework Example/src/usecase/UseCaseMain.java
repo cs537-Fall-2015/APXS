@@ -8,7 +8,7 @@ public class UseCaseMain {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		int port = 9898;
+		int port = 9897;
 		
 		try {
 			
