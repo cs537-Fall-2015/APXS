@@ -19,7 +19,6 @@ public class MasterMain {
 			Thread server_1 = RoverThreadHandler.getRoverThreadHandler()
 					.getNewThread(serverOne);
 
-			// server begins listening
 			server_1.start();
 
 			// client one server sending messages to server

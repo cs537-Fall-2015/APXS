@@ -13,5 +13,12 @@
 		</list>
 	</section>
 	<section name="ImportExportAction">
+<<<<<<< HEAD
+=======
+		<item value="org.eclipse.egit.ui.internal.clone.GitCloneWizard" key="ImportExportPage.STORE_SELECTED_IMPORT_WIZARD_ID"/>
+		<list key="ImportExportPage.STORE_EXPANDED_IMPORT_CATEGORIES">
+			<item value="org.eclipse.egit.ui.internal.clone.gitclonecategory"/>
+		</list>
+>>>>>>> 1f45d11fd393cf33ff33f906286e7cca136c7b98
 	</section>
 </section>
