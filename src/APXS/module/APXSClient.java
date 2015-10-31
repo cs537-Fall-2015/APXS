@@ -27,7 +27,7 @@ public class APXSClient extends RoverClientRunnable{
 	            outputToAnotherObject = new ObjectOutputStream(getRoverSocket().getNewSocket().getOutputStream());
 	            
 	            System.out.println("=================================================");
-	            System.out.println("Module 1 Client: Sending request to Socket Server");
+	            System.out.println("APXS Client: Sending request to Socket Server");
 	            System.out.println("=================================================");
 	            
 	            if(i == 4){
@@ -40,7 +40,8 @@ public class APXSClient extends RoverClientRunnable{
 	            //read the server response message
 	            inputFromAnotherObject = new ObjectInputStream(getRoverSocket().getSocket().getInputStream());
 	            String message = (String) inputFromAnotherObject.readObject();
-	            System.out.println("Module 1 Client: Message from Server - " + message.toUpperCase());
+
+	            System.out.println("APXS Client: Message from Server : " + message.toUpperCase());
 	            
 	            //close resources
 	            inputFromAnotherObject.close();
