@@ -40,7 +40,11 @@ public class APXSClient extends RoverClientRunnable{
 	            //read the server response message
 	            inputFromAnotherObject = new ObjectInputStream(getRoverSocket().getSocket().getInputStream());
 	            String message = (String) inputFromAnotherObject.readObject();
+<<<<<<< HEAD
+	            System.out.println("Module 1 Client: Message from Server - " + message.toUpperCase());
+=======
 	            System.out.println("Module 1 Client: Message from Server : " + message.toUpperCase());
+>>>>>>> 315c7f67bc3cfcb04b64492b9efd00e3025beed9
 	            
 	            //close resources
 	            inputFromAnotherObject.close();
