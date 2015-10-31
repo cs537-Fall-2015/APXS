@@ -28,6 +28,7 @@ public class APXSServer extends RoverServerRunnable {
 				
 				// convert ObjectInputStream object to String
 				String message = (String) inputFromAnotherObject.readObject();
+
 				System.out.println("APXS Server: Message Received from Client - "+ message.toUpperCase());
 				
 				// create ObjectOutputStream object

@@ -42,8 +42,7 @@ public class APXSClient extends RoverClientRunnable{
 	            String message = (String) inputFromAnotherObject.readObject();
 
 	            System.out.println("APXS Client: Message from Server : " + message.toUpperCase());
-	            
-	            //close resources
+	             //close resources
 	            inputFromAnotherObject.close();
 	            outputToAnotherObject.close();
 	            Thread.sleep(5000);
