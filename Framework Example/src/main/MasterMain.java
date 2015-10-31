@@ -9,7 +9,7 @@ import java.io.IOException;
 
 public class MasterMain {
 	public static void main(String[] args) {
-/*
+
 		// Each module has its own port
 		int port_one = 9017;
 
@@ -35,6 +35,6 @@ public class MasterMain {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-*/
+
 	}
 }
