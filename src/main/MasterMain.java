@@ -20,10 +20,13 @@ public class MasterMain {
 					.getNewThread(serverOne);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 			// server begins listening.
 =======
 			// server begins listening
 >>>>>>> 315c7f67bc3cfcb04b64492b9efd00e3025beed9
+=======
+>>>>>>> ba090a8642e180c0b07c666576a2970743b6b501
 			server_1.start();
 
 			// client one server sending messages to server
