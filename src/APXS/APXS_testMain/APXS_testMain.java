@@ -18,10 +18,10 @@ public class APXS_testMain {
 
 			// server begins listening
 			apxs_server.start();
-
 			// client one server sending messages to server
 			APXSClient clientOne = new APXSClient(port_one, null); // notice
-			// port_two
+
+			// start the thread which communicates through sockets
 			Thread apxs_client = RoverThreadHandler.getRoverThreadHandler()
 					.getNewThread(clientOne);
 
