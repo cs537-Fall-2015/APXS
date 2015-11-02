@@ -40,7 +40,7 @@ public class APXS {
 	    }
 	    
 //	    public void checkout() {
-//	        setState("RAD_CHECKOUT");
+//	        setState("APXS_CHECKOUT");
 //	    }
 //	    
 	    public void shutdown() {
