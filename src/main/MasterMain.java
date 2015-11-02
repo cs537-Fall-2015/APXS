@@ -22,12 +22,7 @@ public class MasterMain {
 			APXSServer serverOne = new APXSServer(port_one);
 			Thread server_1 = RoverThreadHandler.getRoverThreadHandler()
 					.getNewThread(serverOne);
-
-<<<<<<< HEAD
-			// server begins listening.
 			// server begins listening
-=======
->>>>>>> 103f7a4b69d8875e3d652f457f5ede81c0a6bdd9
 			server_1.start();
 
 			// client one server sending messages to server
