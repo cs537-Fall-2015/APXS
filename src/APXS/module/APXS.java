@@ -20,7 +20,7 @@ public class APXS {
 	    
 	    private HashMap<Long, Double> data = new HashMap<Long, Double>();
 	    
-	    private String state = "RAD_OFF";
+	    private String state = "APXS_OFF";
 	    
 	    public APXS() {
 	    }
@@ -44,11 +44,11 @@ public class APXS {
 //	    }
 //	    
 	    public void shutdown() {
-	        setState("RAD_SHUTDOWN");
+	        setState("APXS_SHUTDOWN");
 	    }
 	    
 	    public void sleep() {
-	        setState("RAD_SLEEP");
+	        setState("APXS_SLEEP");
 	    }
 //	    
 //	    // Rover interaction
@@ -62,7 +62,7 @@ public class APXS {
 	    }
 	    
 	    public boolean isAPXS() {
-	        return state.equals("RAD_SCIENCE");
+	        return state.equals("APXS_SCIENCE");
 	    }
 //	    
 //	    public double getPowerConsumption() {
@@ -87,7 +87,7 @@ public class APXS {
 	    // Getters/Setters
 	    
 	    public HashMap<Long, Double> getData() {
-	        if (state.equals("RAD_CHECKOUT")) {
+	        if (state.equals("APXS_CHECKOUT")) {
 	            return data;
 	        } else {
 	            return null;
