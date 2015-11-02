@@ -34,7 +34,7 @@ public class APXSClient extends RoverClientRunnable{
 	            	outputToAnotherObject.writeObject("exit");
 	            }
 	            else {
-	            	outputToAnotherObject.writeObject("Message #" + i + " from module 1.");
+	            	outputToAnotherObject.writeObject("Message #" + i + " from module");
 	            }
 	            
 	            //read the server response message

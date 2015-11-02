@@ -46,7 +46,7 @@ public class APXSServer extends RoverServerRunnable {
 				if (message.equalsIgnoreCase("exit"))
 					break;
 			}
-			System.out.println("Server: Shutting down Socket server 1!!");
+			System.out.println("Server: Shutting down Socket server !!");
 			// close the ServerSocket object
 			closeAll();
 		} catch (IOException e) {
