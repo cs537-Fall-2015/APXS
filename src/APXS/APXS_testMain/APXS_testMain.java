@@ -5,10 +5,11 @@ import java.io.IOException;
 import generic.RoverThreadHandler;
 import APXS.module.APXSClient;
 import APXS.module.APXSServer;
+import json.Constants;
 
 public class APXS_testMain {
 	public static void main(String[] args) {
-		int port_one = 9017;
+		int port_one = Constants.APXS_PORT;
 
 		try {
 			// create a thread for module one
