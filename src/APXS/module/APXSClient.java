@@ -36,6 +36,9 @@ public class APXSClient extends RoverClientRunnable{
 	            else  if(i == 0){
 	            	outputToAnotherObject.writeObject("Check Temperature");
 	            }
+	            else  if(i == 1){
+	            	outputToAnotherObject.writeObject("Check Power Level");
+	            }
 	           
 	            else {
 	            	outputToAnotherObject.writeObject("Message #" + i + " from module 1.");
