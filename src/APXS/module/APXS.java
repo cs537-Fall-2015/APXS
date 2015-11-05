@@ -14,6 +14,8 @@ public class APXS {
 	    
 	    public final static double MIN_RADIATION = 0.1;
 	    
+	    public final static double TEMPERATURE = 15;
+	    
 	    public final static double MAX_RADIATION = Math.pow(10, 4);
 	    
 	    private double powerLevel;
@@ -26,6 +28,13 @@ public class APXS {
 	    }
 	    
 	    // Change state
+	    
+	    public void checkTemp()
+	    {
+	    	System.out.println("APXS Server : Current Temperature is "+TEMPERATURE);
+	    	System.out.println("=================================================");
+	    }
+	    
 	    
 	    public void off() {
 	        setState("APXS_OFF");

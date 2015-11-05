@@ -7,9 +7,9 @@ import java.net.UnknownHostException;
 
 import generic.RoverClientRunnable;
 
-public class APXSClient extends RoverClientRunnable{
+public class Client extends RoverClientRunnable{
 
-	public APXSClient(int port, InetAddress host)
+	public Client(int port, InetAddress host)
 			throws UnknownHostException {
 		super(port, host);
 	}
@@ -23,6 +23,7 @@ public class APXSClient extends RoverClientRunnable{
 		    
 		    //Send 5 messages to the Server
 	        for(int i = 0; i < 5; i++){
+	        	
 	            //write to socket using ObjectOutputStream
 	            outputToAnotherObject = new ObjectOutputStream(getRoverSocket().getNewSocket().getOutputStream());
 	            
@@ -30,21 +31,15 @@ public class APXSClient extends RoverClientRunnable{
 	            System.out.println("APXS Client: Sending request to Socket Server");
 	            System.out.println("=================================================");
 	            
+	          
+	            
 	            if(i == 4){
 	            	outputToAnotherObject.writeObject("exit");
 	            }
 	            else {
 	            	outputToAnotherObject.writeObject("Message #" + i + " from module");
 	            }
-	            if(i==0)
-	            {
 	            
-	            System.out.println("APXS Client: Check Temperature of APXS");
-	            System.out.println("=================================================");
-	            APXS obj =new APXS();
-	            obj.checkTemp();
-	            
-	            }
 	            //read the server response message
 	            inputFromAnotherObject = new ObjectInputStream(getRoverSocket().getSocket().getInputStream());
 	            String message = (String) inputFromAnotherObject.readObject();
