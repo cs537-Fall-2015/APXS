@@ -47,6 +47,8 @@ public class APXSServer extends RoverServerRunnable {
 					break;
 				if (message.equalsIgnoreCase("APXS ON"))
 					System.out.println("APXS Server: APXS is ON");
+				if (message.equalsIgnoreCase("APXS OFF"))
+					System.out.println("APXS Server: APXS is OFF");
 				
 				if (message.equalsIgnoreCase("Check Temperature"))
 					System.out.println("APXS Server: Current Temperature is 15");

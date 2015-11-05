@@ -45,7 +45,11 @@ public class APXSClient extends RoverClientRunnable {
 
 				else if (i == 2) {
 					outputToAnotherObject.writeObject("Check Power Level");
-				} else {
+				} 
+				else if (i == 3) {
+					outputToAnotherObject.writeObject("APXS OFF");
+				}
+				else {
 					outputToAnotherObject.writeObject("Message #" + i
 							+ " from module 1.");
 				}
