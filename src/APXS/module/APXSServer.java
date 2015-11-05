@@ -48,7 +48,7 @@ public class APXSServer extends RoverServerRunnable {
 				if (message.equalsIgnoreCase("Check Temperature"))
 					System.out.println("APXS Server: Current Temperature is 15");
 				if (message.equalsIgnoreCase("Check Power Level"))
-					System.out.println("APXS Server: Current Power Level is 4.2");
+					System.out.println("APXS Server: Current Power Level is 5.2");
 			}
 			System.out.println("Server: Shutting down Socket server 1!!");
 			// close the ServerSocket object
