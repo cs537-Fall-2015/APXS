@@ -34,6 +34,10 @@ public class APXSClient extends RoverClientRunnable{
 	            	outputToAnotherObject.writeObject("exit");
 	            }
 	            else  if(i == 0){
+	            	outputToAnotherObject.writeObject("APXS ON");
+	            }
+	          
+	            else  if(i == 1){
 	            	outputToAnotherObject.writeObject("Check Temperature");
 	            }
 	            else  if(i == 2){
