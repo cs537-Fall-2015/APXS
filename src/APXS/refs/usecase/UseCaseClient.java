@@ -20,8 +20,8 @@ public class UseCaseClient extends RoverClientRunnable{
 		try{
 			ObjectOutputStream oos = null;
 		    ObjectInputStream ois = null;
-		    Thread.sleep(2000);
-	        for(int i=0; i<5;i++){
+		    Thread.sleep(3000);
+	        for(int i=0; i<6;i++){
 	            //establish socket connection to server
 	            //socket = new Socket(host.getHostName(), 9876);
 	            //write to socket using ObjectOutputStream

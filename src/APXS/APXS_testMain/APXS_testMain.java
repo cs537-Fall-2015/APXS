@@ -12,6 +12,7 @@ public class APXS_testMain {
 		int port_one = Constants.APXS_PORT;
 
 		try {
+			System.out.println("This is for test");
 			// create a thread for module one
 			APXSServer serverOne = new APXSServer(port_one);
 			Thread apxs_server = RoverThreadHandler.getRoverThreadHandler()
