@@ -3,6 +3,7 @@ package APXS.module;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.Random;
 
 import generic.RoverServerRunnable;
 
@@ -36,7 +37,8 @@ public class APXSServer extends RoverServerRunnable {
 				
 				// write object to Socket
 				outputToAnotherObject.writeObject("APXS Server response Hi Client - " + message);
-				
+				Random rand = new Random();
+				int randVal = rand.nextInt(40)+1;
 				// close resources
 				inputFromAnotherObject.close();
 				outputToAnotherObject.close();
@@ -50,10 +52,16 @@ public class APXSServer extends RoverServerRunnable {
 				if (message.equalsIgnoreCase("APXS OFF"))
 					System.out.println("APXS Server: APXS is OFF");
 				
-				if (message.equalsIgnoreCase("Check Temperature"))
-					System.out.println("APXS Server: Current Temperature is 15");
-				if (message.equalsIgnoreCase("Check Power Level"))
+				if (message.equalsIgnoreCase("Check Temperature")){
+					System.out.println("APXS Server: Current Temperature is "+randVal);
+				if(randVal>30){
+					System.out.println("APXS Server: APXS is shutting down and closing connection to Socket server");
+					break;
+				}}
+				if (message.equalsIgnoreCase("Check Power Level")){
 					System.out.println("APXS Server: Current Power Level is 5.2");
+					
+					}
 			}
 			System.out.println("Server: Shutting down Socket server !!");
 			// close the ServerSocket object
