@@ -36,7 +36,7 @@ public class UseCaseClient extends RoverClientRunnable{
 	            //close resources
 	            ois.close();
 	            oos.close();
-	            Thread.sleep(1000);
+	            Thread.sleep(1500);
 	        }
 	        closeAll();
 		}	        

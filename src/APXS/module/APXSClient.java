@@ -18,7 +18,7 @@ public class APXSClient extends RoverClientRunnable {
 		try {
 			ObjectOutputStream outputToAnotherObject = null;
 			ObjectInputStream inputFromAnotherObject = null;
-			Thread.sleep(5000);
+			Thread.sleep(6000);
 
 			// Send 5 messages to the Server
 			for (int i = 0; i < 5; i++) {
@@ -65,7 +65,7 @@ public class APXSClient extends RoverClientRunnable {
 				// close resources
 				inputFromAnotherObject.close();
 				outputToAnotherObject.close();
-				Thread.sleep(5000);
+				Thread.sleep(6000);
 			}
 			closeAll();
 		} catch (UnknownHostException e) {
