@@ -59,10 +59,8 @@ public class APXSServer extends RoverServerRunnable {
 			// close the ServerSocket object
 			closeAll();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (Exception error) {
 			System.out.println("Server: Error:" + error.getMessage());
