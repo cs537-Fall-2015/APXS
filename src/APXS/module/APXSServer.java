@@ -45,6 +45,15 @@ public class APXSServer extends RoverServerRunnable {
 				// terminate the server if client sends exit request
 				if (message.equalsIgnoreCase("exit"))
 					break;
+				if (message.equalsIgnoreCase("APXS ON"))
+					System.out.println("APXS Server: APXS is ON");
+				if (message.equalsIgnoreCase("APXS OFF"))
+					System.out.println("APXS Server: APXS is OFF");
+				
+				if (message.equalsIgnoreCase("Check Temperature"))
+					System.out.println("APXS Server: Current Temperature is 15");
+				if (message.equalsIgnoreCase("Check Power Level"))
+					System.out.println("APXS Server: Current Power Level is 5.2");
 			}
 			System.out.println("Server: Shutting down Socket server !!");
 			// close the ServerSocket object
