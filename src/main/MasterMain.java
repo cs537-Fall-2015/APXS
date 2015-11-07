@@ -2,13 +2,10 @@ package main;
 
 import generic.RoverThreadHandler;
 import java.io.IOException;
-import APXS.module.APXSClient;
-import APXS.module.APXSServer;
 
-import APXS.module.APXSClient;
+import APXS.APXS_testMain.APXSClient;
 import APXS.module.APXSServer;
-
-import APXS.module.APXSClient;
+import APXS.module.APXSServer;
 import APXS.module.APXSServer;
 
 public class MasterMain {

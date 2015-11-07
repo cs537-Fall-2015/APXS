@@ -1,4 +1,4 @@
-package APXS.module;
+package APXS.APXS_testMain;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -17,8 +17,6 @@ public class APXSClient extends RoverClientRunnable {
 	@Override
 	public void run() {
 		sendMessage("APXS ON");
-        sendMessage("Check Temperature");
-        sendMessage("Check Power Level");
         sendMessage("APXS OFF");
         sendMessage("exit");
         
