@@ -17,8 +17,6 @@ public class APXSClient extends RoverClientRunnable {
 	@Override
 	public void run() {
 		sendMessage("APXS ON");
-        sendMessage("Check Temperature");
-        sendMessage("Check Power Level");
         sendMessage("APXS OFF");
         sendMessage("exit");
         
@@ -55,7 +53,7 @@ public class APXSClient extends RoverClientRunnable {
             inputFromAnotherObject = new ObjectInputStream(getRoverSocket()
                                                            .getSocket().getInputStream());
             String message = (String) inputFromAnotherObject.readObject();
-            System.out.println("APXS Client received: "
+            System.out.println("APXS Ground Station receiving: "
                                + message.toUpperCase());
             
             // close resources

@@ -2,8 +2,8 @@ package APXS.APXS_testMain;
 
 import java.io.IOException;
 
-import APXS.module.APXSServer;
 import generic.RoverThreadHandler;
+import APXS.module.APXSServer;
 import json.Constants;
 
 public class APXS_testMain {
