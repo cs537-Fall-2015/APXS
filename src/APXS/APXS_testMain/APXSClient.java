@@ -43,7 +43,7 @@ public class APXSClient extends RoverClientRunnable {
             System.out
             .println("=================================================");
             System.out
-            .println("APXS Client: Sending request to Socket Server");
+            .println("APXS Testing Framework: Sending request to Socket Server");
             System.out
             .println("=================================================");
             
@@ -53,7 +53,7 @@ public class APXSClient extends RoverClientRunnable {
             inputFromAnotherObject = new ObjectInputStream(getRoverSocket()
                                                            .getSocket().getInputStream());
             String message = (String) inputFromAnotherObject.readObject();
-            System.out.println("APXS Client received: "
+            System.out.println("APXS Testing Framework received: "
                                + message.toUpperCase());
             
             // close resources
@@ -65,7 +65,7 @@ public class APXSClient extends RoverClientRunnable {
             // TODO Auto-generated catch block
             e.printStackTrace();
         } catch (Exception error) {
-            System.out.println("Client: Error:" + error.getMessage());
+            System.out.println("APXS Testing Framework: Error:" + error.getMessage());
         }
 
 	}
