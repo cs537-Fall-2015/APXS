@@ -14,7 +14,7 @@ public class APXS {
 	    
 	    public void turnOff(){
 			state = OFF;
-			System.out.println("APXS Server: APXS is turning off");
+			System.out.println("APXS Module: APXS is turning off");
 		}
 
 		public APXS() {
@@ -23,7 +23,7 @@ public class APXS {
 	    // Change state
 	    public void turnOn(){
 	    	state = ON;
-	    	System.out.println("APXS Server: APXS is turning on");
+	    	System.out.println("APXS Module: APXS is turning on");
 	    }
 	    
 	    public boolean isOn(){
