@@ -18,6 +18,7 @@ public class APXS {
 		}
 
 		public APXS() {
+			state = OFF;
 	    }
 	    
 	    // Change state
