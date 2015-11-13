@@ -37,4 +37,11 @@ public class APXS {
 			return randVal;
 	    }
 //	    	    
+
+		public void run() {
+			//check temperature
+			//if the temperature is within the working range, run the measurement
+			//else wait for "an hour" then do run again
+			System.out.println("APXS Module: APXS is gathering the data");
+		}
 	}

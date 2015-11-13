@@ -39,6 +39,9 @@ public class APXSServer extends RoverServerRunnable {
 				if (message.equalsIgnoreCase("APXS OFF")){
 					apxs.turnOff();
 				}
+				if (message.equalsIgnoreCase("APXS RUN")){
+					apxs.run();
+				}
 				
 				
 				

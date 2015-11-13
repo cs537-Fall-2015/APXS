@@ -17,13 +17,13 @@ public class APXSClient extends RoverClientRunnable {
 	@Override
 	public void run() {
 		sendMessage("APXS ON");
+		sendMessage("APXS RUN");
         sendMessage("APXS OFF");
         sendMessage("exit");
         
         try {
             closeAll();
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
 	}
@@ -33,8 +33,6 @@ public class APXSClient extends RoverClientRunnable {
             ObjectOutputStream outputToAnotherObject = null;
             ObjectInputStream inputFromAnotherObject = null;
             Thread.sleep(1000);
-            
-            // Send 5 messages to the Server
             
             // write to socket using ObjectOutputStream
             outputToAnotherObject = new ObjectOutputStream(getRoverSocket()
@@ -62,7 +60,6 @@ public class APXSClient extends RoverClientRunnable {
             Thread.sleep(300);
             
         } catch (UnknownHostException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         } catch (Exception error) {
             System.out.println("Testing Framework: Error:" + error.getMessage());
