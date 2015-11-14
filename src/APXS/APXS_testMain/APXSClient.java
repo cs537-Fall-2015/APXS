@@ -1,11 +1,13 @@
 package APXS.APXS_testMain;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
-
+import json.Constants;
 import generic.RoverClientRunnable;
 
 public class APXSClient extends RoverClientRunnable {
@@ -16,12 +18,25 @@ public class APXSClient extends RoverClientRunnable {
 
 	@Override
 	public void run() {
-		sendMessage("APXS ON");
-		sendMessage("APXS RUN");
-        sendMessage("APXS OFF");
-        sendMessage("exit");
-        
-        try {
+		BufferedReader br = null;
+
+		try {
+			String sCurrentLine;
+			br = new BufferedReader(new FileReader(Constants.commands));
+			while ((sCurrentLine = br.readLine()) != null) {
+				sendMessage(sCurrentLine);
+			}
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (br != null)br.close();
+			} catch (IOException ex) {
+				ex.printStackTrace();
+			}
+		}
+		try {
             closeAll();
         } catch (IOException e) {
             e.printStackTrace();

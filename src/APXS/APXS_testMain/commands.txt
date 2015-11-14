@@ -1,0 +1,4 @@
+APXS ON
+APXS RUN
+APXS OFF
+exit
