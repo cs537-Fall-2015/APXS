@@ -7,19 +7,16 @@ import java.io.ObjectOutputStream;
 import generic.RoverServerRunnable;
 
 public class APXSServer extends RoverServerRunnable {
-
 	public APXSServer(int port) throws IOException {
 		super(port);
 	}
-
+	
 	@Override
 	public void run() {
 		APXS apxs = new APXS();
 		try {
 			while (true) {
-				
 				System.out.println("APXS Server: Waiting for client request");
-				
 				// creating socket and waiting for client connection
 				getRoverServerSocket().openSocket();
 				

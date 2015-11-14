@@ -1,0 +1,18 @@
+APXS turned ON 
+
+Temperature not compatible : 4
+
+Temperature is 43 
+
+Sensor ON 
+
+APXS OFF 
+
+APXS turned ON 
+
+Temperature is 82 
+
+Sensor ON 
+
+APXS OFF 
+
