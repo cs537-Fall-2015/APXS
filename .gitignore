@@ -1,3 +1,4 @@
 /bin/
 *.class
 /.metadata/
+/src/APXS/module/log.txt
