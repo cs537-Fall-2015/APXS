@@ -20,19 +20,19 @@ public class UseCaseClient extends RoverClientRunnable{
 		try{
 			ObjectOutputStream oos = null;
 		    ObjectInputStream ois = null;
-		    Thread.sleep(2000);
+		    Thread.sleep(3000);
 	        for(int i=0; i<5;i++){
 	            //establish socket connection to server
 	            //socket = new Socket(host.getHostName(), 9876);
 	            //write to socket using ObjectOutputStream
 	            oos = new ObjectOutputStream(getRoverSocket().getNewSocket().getOutputStream());
-	            System.out.println("Client: Sending request to Socket Server");
+	            System.out.println("Client : Sending request to Socket Server");
 	            if(i==4)oos.writeObject("exit");
 	            else oos.writeObject("Test "+i);
 	            //read the server response message
 	            ois = new ObjectInputStream(getRoverSocket().getSocket().getInputStream());
 	            String message = (String) ois.readObject();
-	            System.out.println("Client: Message from Server - " + message.toUpperCase());
+	            System.out.println("Client : Message from the Server - " + message.toUpperCase());
 	            //close resources
 	            ois.close();
 	            oos.close();

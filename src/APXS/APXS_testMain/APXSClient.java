@@ -32,7 +32,7 @@ public class APXSClient extends RoverClientRunnable {
         try {
             ObjectOutputStream outputToAnotherObject = null;
             ObjectInputStream inputFromAnotherObject = null;
-            Thread.sleep(1000);
+            Thread.sleep(1500);
             
             // write to socket using ObjectOutputStream
             outputToAnotherObject = new ObjectOutputStream(getRoverSocket()
@@ -41,7 +41,7 @@ public class APXSClient extends RoverClientRunnable {
             System.out
             .println("=================================================");
             System.out
-            .println("APXS Testing Framework: Sending request to Socket Server");
+            .println("APXS Module Testing Framework: Sending request to Socket Server");
             System.out
             .println("=================================================");
             
@@ -51,7 +51,7 @@ public class APXSClient extends RoverClientRunnable {
             inputFromAnotherObject = new ObjectInputStream(getRoverSocket()
                                                            .getSocket().getInputStream());
             String message = (String) inputFromAnotherObject.readObject();
-            System.out.println("APXS Testing Framework received: "
+            System.out.println("APXS Module Testing Framework received: "
                                + message.toUpperCase());
             
             // close resources

@@ -18,14 +18,14 @@ public class UseCaseServer extends RoverServerRunnable{
 		// TODO Auto-generated method stub
 		try {			
 			while(true){				
-	            System.out.println("Server: Waiting for client request");	            
+	            System.out.println("Server : Waiting for client request");	            
 				//creating socket and waiting for client connection
 	            getRoverServerSocket().openSocket();
 	            //read from socket to ObjectInputStream object
 	            ObjectInputStream ois = new ObjectInputStream(getRoverServerSocket().getSocket().getInputStream());
 	            //convert ObjectInputStream object to String
 	            String message = (String) ois.readObject();
-	            System.out.println("Server: Message Received from Client - " + message.toUpperCase());
+	            System.out.println("Server : Message Received from Client - " + message.toUpperCase());
 	            //create ObjectOutputStream object
 	            ObjectOutputStream oos = new ObjectOutputStream(getRoverServerSocket().getSocket().getOutputStream());
 	            //write object to Socket

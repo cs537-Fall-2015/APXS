@@ -19,7 +19,7 @@ public class APXSServer extends RoverServerRunnable {
 		try {
 			while (true) {
 				
-				System.out.println("APXS Module: Waiting for client request");
+				System.out.println("APXS Module : Waiting for clients request");
 				
 				// creating socket and waiting for client connection
 				getRoverServerSocket().openSocket();
@@ -30,7 +30,7 @@ public class APXSServer extends RoverServerRunnable {
 				// convert ObjectInputStream object to String
 				String message = (String) inputFromAnotherObject.readObject();
 
-				System.out.println("APXS Module: Message Received from Client - "+ message.toUpperCase());
+				System.out.println("APXS Module : Message Received from Client - "+ message.toUpperCase());
 				if (message.equalsIgnoreCase("exit"))
 					break;
 				if (message.equalsIgnoreCase("APXS ON")){
@@ -57,7 +57,7 @@ public class APXSServer extends RoverServerRunnable {
 				// getRoverServerSocket().closeSocket();
 				// terminate the server if client sends exit request
 			}
-			System.out.println("Module: Shutting down Socket server !!");
+			System.out.println("Module : Shutting down Socket server !!");
 			// close the ServerSocket object
 			closeAll();
 		} catch (IOException e) {
@@ -65,7 +65,7 @@ public class APXSServer extends RoverServerRunnable {
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (Exception error) {
-			System.out.println("Module: Error:" + error.getMessage());
+			System.out.println("Module : Error :" + error.getMessage());
 		}
 
 	}

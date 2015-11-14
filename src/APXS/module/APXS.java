@@ -14,7 +14,7 @@ public class APXS {
 	    
 	    public void turnOff(){
 			state = OFF;
-			System.out.println("APXS Module: APXS is turning off");
+			System.out.println("APXS Module : APXS is turning off");
 		}
 
 		public APXS() {
@@ -24,7 +24,7 @@ public class APXS {
 	    // Change state
 	    public void turnOn(){
 	    	state = ON;
-	    	System.out.println("APXS Module: APXS is turning on");
+	    	System.out.println("APXS Module : APXS is turning on");
 	    }
 	    
 	    public boolean isOn(){
@@ -42,6 +42,6 @@ public class APXS {
 			//check temperature
 			//if the temperature is within the working range, run the measurement
 			//else wait for "an hour" then do run again
-			System.out.println("APXS Module: APXS is gathering the data");
+			System.out.println("APXS Module : APXS is gathering the data");
 		}
 	}
