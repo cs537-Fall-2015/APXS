@@ -1,15 +1,16 @@
 package main;
 
 import generic.RoverThreadHandler;
-/*
-import module.APXSClient;
-import module.APXSServer;
-*/
 import java.io.IOException;
+
+import APXS.APXS_testMain.APXSClient;
+import APXS.module.APXSServer;
+import APXS.module.APXSServer;
+import APXS.module.APXSServer;
 
 public class MasterMain {
 	public static void main(String[] args) {
-/*
+
 		// Each module has its own port
 		int port_one = 9017;
 
@@ -34,6 +35,6 @@ public class MasterMain {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-*/
+
 	}
 }
