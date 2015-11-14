@@ -31,11 +31,11 @@ public class APXS {
 	        return state;
 	    }
 	    
-	    private int getTemp(){
-	    	Random rand = new Random();
-			int randVal = rand.nextInt(40)+1;
-			return randVal;
-	    }
+	  //  private int getTemp(){
+	   // 	Random rand = new Random();
+	//		int randVal = rand.nextInt(40)+1;
+	//		return randVal;
+	 //   }
 //	    	    
 
 		public void run() {
@@ -43,5 +43,12 @@ public class APXS {
 			//if the temperature is within the working range, run the measurement
 			//else wait for "an hour" then do run again
 			System.out.println("APXS Module : APXS is gathering the data");
+		}
+
+		public int checktemparature() {
+			// TODO Auto-generated method stub
+			Random rand = new Random();
+			int randVal = rand.nextInt(40)+1;
+			return randVal;
 		}
 	}

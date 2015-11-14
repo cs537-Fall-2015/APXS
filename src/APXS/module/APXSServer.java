@@ -42,6 +42,11 @@ public class APXSServer extends RoverServerRunnable {
 				if (message.equalsIgnoreCase("APXS RUN")){
 					apxs.run();
 				}
+				if (message.equalsIgnoreCase("APXS Check Temprature")){
+					int  i = apxs.checktemparature();
+					System.out.println("Temparature is : " + i);
+					
+				}
 				
 				
 				

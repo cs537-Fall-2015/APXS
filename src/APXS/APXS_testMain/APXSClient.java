@@ -19,6 +19,7 @@ public class APXSClient extends RoverClientRunnable {
 		sendMessage("APXS ON");
 		sendMessage("APXS RUN");
         sendMessage("APXS OFF");
+        sendMessage("APXS Check Temprature");
         sendMessage("exit");
         
         try {
