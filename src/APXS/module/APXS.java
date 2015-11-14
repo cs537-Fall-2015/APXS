@@ -26,24 +26,18 @@ public class APXS {
 	    	state = ON;
 	    	System.out.println("APXS Module: APXS is turning on");
 	    }
-		public static void apxs_checkTemp(){
-			Random rand = new Random();
-			int hour = 1;
-			int randVal = rand.nextInt(85)+1;
-			if(randVal<40 || randVal>85){
-				System.out.println("APXS : APXS will restart after one hour as it is not in working condition right now. Temperature is "+randVal+"'c");
-				System.out.println("After "+hour+" hour");
-				apxs_checkTemp();
+		public boolean checkTemp(){
+			int temperature = getTemp();
+			System.out.println("APXS : current temperature is "+temperature+"'C");
+			if(temperature<(-40) && temperature >(-85)){
+				return true;
 			}
 			else{
-				System.out.println("APXS: current temperature is -"+randVal+"'C");
-				apxs_con_Sensor_ON();
+				return false;
 			}
-			hour++;
-			
 		}
 		 
-		public  static void apxs_con_Sensor_ON(){
+		public  static void con_Sensor_ON(){
 			System.out.println("APXS: Sensor is ON [as it is in working condition (temperature is between -40'c to -85'c)].");
 		}
 
@@ -53,15 +47,21 @@ public class APXS {
 	    
 	    private int getTemp(){
 	    	Random rand = new Random();
-			int randVal = rand.nextInt(40)+1;
+			int randVal = rand.nextInt(180)-100;
 			return randVal;
 	    }
 //	    	    
 
 		public void run() {
-			//check temperature
-			//if the temperature is within the working range, run the measurement
-			//else wait for "an hour" then do run again
+			while(!checkTemp()){
+				try {
+					System.out.println("APXS: current temperature is not in the working condition. Check temperature after one hour");
+					Thread.sleep(1000);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+			}
+			con_Sensor_ON();
 			System.out.println("APXS Module: APXS is gathering the data");
 		}
 	}
