@@ -1,5 +1,5 @@
 /bin/
 *.class
-/.metadata/*
-/.settings/*
+/.metadata/
+/.settings/
 /src/APXS/module/log.txt
