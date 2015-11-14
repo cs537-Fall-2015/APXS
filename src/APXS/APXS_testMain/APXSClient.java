@@ -51,8 +51,7 @@ public class APXSClient extends RoverClientRunnable {
             inputFromAnotherObject = new ObjectInputStream(getRoverSocket()
                                                            .getSocket().getInputStream());
             String message = (String) inputFromAnotherObject.readObject();
-            System.out.println("APXS Testing Framework received: "
-                               + message.toUpperCase());
+            System.out.println("APXS Testing Framework received: " + message.toUpperCase());
             
             // close resources
             inputFromAnotherObject.close();

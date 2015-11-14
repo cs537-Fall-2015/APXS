@@ -31,10 +31,15 @@ public class APXSServer extends RoverServerRunnable {
 				String message = (String) inputFromAnotherObject.readObject();
 
 				System.out.println("APXS Module: Message Received from Client - "+ message.toUpperCase());
+
 				if (message.equalsIgnoreCase("exit"))
 					break;
 				if (message.equalsIgnoreCase("APXS ON")){
 					apxs.turnOn();
+					
+				}
+				if(message.equalsIgnoreCase("APXS ON")){
+					APXS.apxs_checkTemp();
 				}
 				if (message.equalsIgnoreCase("APXS OFF")){
 					apxs.turnOff();
@@ -49,15 +54,16 @@ public class APXSServer extends RoverServerRunnable {
 				ObjectOutputStream outputToAnotherObject = new ObjectOutputStream(getRoverServerSocket().getSocket().getOutputStream());
 				
 				// write object to Socket
-				outputToAnotherObject.writeObject("APXS Module responseAPXS - " + message);
+
+				outputToAnotherObject.writeObject("APXS Server responseAPXS - " + message);
 				// close resources
 				inputFromAnotherObject.close();
 				outputToAnotherObject.close();
 				
-				// getRoverServerSocket().closeSocket();
+				
 				// terminate the server if client sends exit request
 			}
-			System.out.println("Module: Shutting down Socket server !!");
+			System.out.println("APXS: Shutting down connection (Socket server)!!");
 			// close the ServerSocket object
 			closeAll();
 		} catch (IOException e) {
@@ -67,7 +73,7 @@ public class APXSServer extends RoverServerRunnable {
 		} catch (Exception error) {
 			System.out.println("Module: Error:" + error.getMessage());
 		}
-
+			
 	}
 
 }
