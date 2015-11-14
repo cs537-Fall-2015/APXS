@@ -1,0 +1,4 @@
+APXS turned ON 
+Temperature is 84 
+Sensor ON 
+APXS OFF 

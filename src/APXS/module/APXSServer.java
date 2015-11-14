@@ -1,18 +1,20 @@
 package APXS.module;
 
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.PrintWriter;
 import java.util.Random;
 
 import generic.RoverServerRunnable;
 
 public class APXSServer extends RoverServerRunnable {
-
 	public APXSServer(int port) throws IOException {
 		super(port);
 	}
-
+	
 	@Override
 	public void run() {
 		APXS apxs = new APXS();
@@ -20,7 +22,6 @@ public class APXSServer extends RoverServerRunnable {
 			while (true) {
 				
 				System.out.println("APXS Module: Waiting for client request");
-				
 				// creating socket and waiting for client connection
 				getRoverServerSocket().openSocket();
 				
@@ -66,6 +67,7 @@ public class APXSServer extends RoverServerRunnable {
 			System.out.println("APXS: Shutting down connection (Socket server)!!");
 			// close the ServerSocket object
 			closeAll();
+			//log.close();
 		} catch (IOException e) {
 			e.printStackTrace();
 		} catch (ClassNotFoundException e) {
