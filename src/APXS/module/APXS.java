@@ -14,7 +14,7 @@ public class APXS {
 	    
 	    public void turnOff(){
 			state = OFF;
-			System.out.println("APXS Module: APXS is turning off");
+			System.out.println("APXS: APXS is turning off");
 		}
 
 		public APXS() {
@@ -24,11 +24,11 @@ public class APXS {
 	    // Change state
 	    public void turnOn(){
 	    	state = ON;
-	    	System.out.println("APXS Module: APXS is turning on");
+	    	System.out.println("APXS: APXS is turning on");
 	    }
 		public boolean checkTemp(){
 			int temperature = getTemp();
-			System.out.println("APXS : current temperature is "+temperature+"'C");
+			System.out.println("APXS: current temperature is "+temperature+"'C");
 			if(temperature<(-40) && temperature >(-85)){
 				return true;
 			}
@@ -53,6 +53,10 @@ public class APXS {
 //	    	    
 
 		public void run() {
+			if(!isOn()){
+				System.out.println("APXS: APXS is not on. Please turn on APXS first.");
+				return;
+			}
 			while(!checkTemp()){
 				try {
 					System.out.println("APXS: current temperature is not in the working condition. Check temperature after one hour");
@@ -62,6 +66,21 @@ public class APXS {
 				}
 			}
 			con_Sensor_ON();
-			System.out.println("APXS Module: APXS is gathering the data");
+			System.out.println("APXS: APXS is gathering the data");
+		}
+
+		public Object runCommand(String message) {
+			if (message.equalsIgnoreCase("APXS_ON")){
+				turnOn();
+				return message;
+			}else if (message.equalsIgnoreCase("APXS_OFF")){
+				turnOff();
+				return message;
+			}else if (message.equalsIgnoreCase("APXS_RUN")){
+				run();
+				return message;
+			}else{
+				return "command is not recognized";
+			}
 		}
 	}

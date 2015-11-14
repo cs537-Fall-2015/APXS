@@ -18,7 +18,7 @@ public class APXSServer extends RoverServerRunnable {
 		try {
 			while (true) {
 				
-				System.out.println("APXS Module: Waiting for client request");
+				System.out.println("APXS Server: Waiting for client request");
 				
 				// creating socket and waiting for client connection
 				getRoverServerSocket().openSocket();
@@ -29,28 +29,15 @@ public class APXSServer extends RoverServerRunnable {
 				// convert ObjectInputStream object to String
 				String message = (String) inputFromAnotherObject.readObject();
 
-				System.out.println("APXS Module: Message Received from Client - "+ message.toUpperCase());
-
-				if (message.equalsIgnoreCase("APXS_ON")){
-					apxs.turnOn();
-					
-				}
-				if (message.equalsIgnoreCase("APXS_OFF")){
-					apxs.turnOff();
-					break;
-				}
-				if (message.equalsIgnoreCase("APXS_RUN")){
-					apxs.run();
-				}
-				
+				System.out.println("APXS Server: Message Received from Client - "+ message.toUpperCase());
 				
 				
 				// create ObjectOutputStream object
 				ObjectOutputStream outputToAnotherObject = new ObjectOutputStream(getRoverServerSocket().getSocket().getOutputStream());
-				
+				Object result = apxs.runCommand(message);
 				// write object to Socket
 
-				outputToAnotherObject.writeObject("APXS Server responseAPXS - " + message);
+				outputToAnotherObject.writeObject(result);
 				// close resources
 				inputFromAnotherObject.close();
 				outputToAnotherObject.close();
@@ -58,15 +45,17 @@ public class APXSServer extends RoverServerRunnable {
 				
 				// terminate the server if client sends exit request
 			}
-			System.out.println("APXS: Shutting down connection (Socket server)!!");
-			// close the ServerSocket object
-			closeAll();
 		} catch (IOException e) {
 			e.printStackTrace();
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (Exception error) {
-			System.out.println("Module: Error:" + error.getMessage());
+			System.out.println("Server: Error:" + error.getMessage());
+		}
+		try {
+			closeAll();
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
 			
 	}

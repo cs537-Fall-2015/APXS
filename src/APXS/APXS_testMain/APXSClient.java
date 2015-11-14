@@ -66,7 +66,7 @@ public class APXSClient extends RoverClientRunnable {
             inputFromAnotherObject = new ObjectInputStream(getRoverSocket()
                                                            .getSocket().getInputStream());
             String message = (String) inputFromAnotherObject.readObject();
-            System.out.println("APXS Testing Framework received: " + message.toUpperCase());
+            System.out.println("APXS Testing Framework received: APXS server response - " + message.toUpperCase());
             
             // close resources
             inputFromAnotherObject.close();
@@ -76,7 +76,7 @@ public class APXSClient extends RoverClientRunnable {
         } catch (UnknownHostException e) {
             e.printStackTrace();
         } catch (Exception error) {
-            System.out.println("Testing Framework: Error:" + error.getMessage());
+            error.printStackTrace();;
         }
 
 	}
