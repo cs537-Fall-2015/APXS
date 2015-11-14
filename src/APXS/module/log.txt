@@ -1,0 +1,18 @@
+APXS turned ON 2015/11/14 14:54:13
+Temperature not compatible : -18 'C 2015/11/14 14:54:13
+Temperature not compatible : -33 'C 2015/11/14 14:54:13
+Temperature is -74 'C 2015/11/14 14:54:13
+Sensor ON 2015/11/14 14:54:13
+APXS OFF -2015/11/14 14:54:13
+
+APXS turned ON 2015/11/14 14:54:23
+Temperature is -76 'C 2015/11/14 14:54:23
+Sensor ON 2015/11/14 14:54:23
+APXS OFF -2015/11/14 14:54:23
+
+APXS turned ON 2015/11/14 14:54:57
+Temperature not compatible : -18'C 2015/11/14 14:54:57
+Temperature is -50'C 2015/11/14 14:54:57
+Sensor ON 2015/11/14 14:54:57
+APXS OFF -2015/11/14 14:54:57
+
