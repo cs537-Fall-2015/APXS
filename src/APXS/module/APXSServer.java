@@ -3,7 +3,6 @@ package APXS.module;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.util.Random;
 
 import generic.RoverServerRunnable;
 
@@ -32,19 +31,15 @@ public class APXSServer extends RoverServerRunnable {
 
 				System.out.println("APXS Module: Message Received from Client - "+ message.toUpperCase());
 
-				if (message.equalsIgnoreCase("exit"))
-					break;
-				if (message.equalsIgnoreCase("APXS ON")){
+				if (message.equalsIgnoreCase("APXS_ON")){
 					apxs.turnOn();
 					
 				}
-				if(message.equalsIgnoreCase("APXS ON")){
-					APXS.apxs_checkTemp();
-				}
-				if (message.equalsIgnoreCase("APXS OFF")){
+				if (message.equalsIgnoreCase("APXS_OFF")){
 					apxs.turnOff();
+					break;
 				}
-				if (message.equalsIgnoreCase("APXS RUN")){
+				if (message.equalsIgnoreCase("APXS_RUN")){
 					apxs.run();
 				}
 				

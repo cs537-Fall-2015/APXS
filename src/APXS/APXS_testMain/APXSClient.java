@@ -71,7 +71,7 @@ public class APXSClient extends RoverClientRunnable {
             // close resources
             inputFromAnotherObject.close();
             outputToAnotherObject.close();
-            Thread.sleep(300);
+            Thread.sleep(500);
             
         } catch (UnknownHostException e) {
             e.printStackTrace();
