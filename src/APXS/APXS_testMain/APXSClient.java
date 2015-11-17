@@ -1,11 +1,13 @@
 package APXS.APXS_testMain;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
-
+import json.Constants;
 import generic.RoverClientRunnable;
 
 public class APXSClient extends RoverClientRunnable {
@@ -16,14 +18,27 @@ public class APXSClient extends RoverClientRunnable {
 
 	@Override
 	public void run() {
-		sendMessage("APXS ON");
-        sendMessage("APXS OFF");
-        sendMessage("exit");
-        
-        try {
+		BufferedReader br = null;
+
+		try {
+			String sCurrentLine;
+			br = new BufferedReader(new FileReader(Constants.commands));
+			while ((sCurrentLine = br.readLine()) != null) {
+				sendMessage(sCurrentLine);
+			}
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (br != null)br.close();
+			} catch (IOException ex) {
+				ex.printStackTrace();
+			}
+		}
+		try {
             closeAll();
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
 	}
@@ -33,8 +48,6 @@ public class APXSClient extends RoverClientRunnable {
             ObjectOutputStream outputToAnotherObject = null;
             ObjectInputStream inputFromAnotherObject = null;
             Thread.sleep(1000);
-            
-            // Send 5 messages to the Server
             
             // write to socket using ObjectOutputStream
             outputToAnotherObject = new ObjectOutputStream(getRoverSocket()
@@ -53,19 +66,17 @@ public class APXSClient extends RoverClientRunnable {
             inputFromAnotherObject = new ObjectInputStream(getRoverSocket()
                                                            .getSocket().getInputStream());
             String message = (String) inputFromAnotherObject.readObject();
-            System.out.println("APXS Testing Framework received: "
-                               + message.toUpperCase());
+            System.out.println("APXS Testing Framework received: APXS server response - " + message.toUpperCase());
             
             // close resources
             inputFromAnotherObject.close();
             outputToAnotherObject.close();
-            Thread.sleep(300);
+            Thread.sleep(500);
             
         } catch (UnknownHostException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         } catch (Exception error) {
-            System.out.println("Testing Framework: Error:" + error.getMessage());
+            error.printStackTrace();;
         }
 
 	}
