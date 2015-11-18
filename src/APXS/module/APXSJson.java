@@ -4,6 +4,13 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Random;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+
+import com.sun.org.apache.bcel.internal.generic.CPInstruction;
+
+import json.MyWriter;
+
 public class APXSJson {
 	double ev[] ;
 	HashMap<String, Double> element = new HashMap<String,Double>();
@@ -15,6 +22,11 @@ public class APXSJson {
 	double deviation = (Math.random()*50);
 	Random random = new Random();
 	double offset = (double)(random.nextInt(2)-1);
+	double max = (Double)(umean + deviation);
+	double	constCross = (Double)(Math.random()*1.0);
+	double min = (Double)(umean - deviation);
+	double resp = (Double)(Math.random()*2.0);
+	
 	{
 		element.put("Na",1.83);
 		element.put("Mg", 7.58);
@@ -30,12 +42,32 @@ public class APXSJson {
 		element.put("Fe",18.5);
 		element.put("Ni", 423.00);
 		element.put("Br", 32.00);
-		Iterator iterator = element.entrySet().iterator();
+		//Iterator iterator = element.entrySet().iterator();
+		double[] ev = new double[count];
+		double[] cps = new double[count];
+		for(double d : element.values()){
+	for (int j = 0; j < count; j++) {
+		cps[j] = (Double) ((offset + (constCross* resp *d)) + 
+				((1 - constCross) * resp *   (Math.random()* (max-min) + min)));	
+	}
+	}
 		
 	for (int i = 0; i<count;i++){
 		ev[i] = energy;
 		energy = energy+(Math.random()*10.00+30);
 	}
+	JSONArray eV = new JSONArray();
+	JSONArray countPerSec = new JSONArray();
+	for(int j = 0; j < count; j++){
+		eV.add(ev[j]);
+		countPerSec.add(cps[j]);
+	}
+	JSONObject obj = new JSONObject();
+	obj.put("ev", eV);
+	obj.put("countPerSec", countPerSec);
+	System.out.println(obj);
+	
+	MyWriter mywriter = new MyWriter(obj, 9017);
 	
 	}
 }
