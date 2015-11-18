@@ -39,7 +39,6 @@ public class APXSServer extends RoverServerRunnable {
 				inputFromAnotherObject.close();
 				outputToAnotherObject.close();
 				
-				
 				// terminate the server if client sends exit request
 			}
 		} catch (IOException e) {
