@@ -47,12 +47,20 @@ public class APXS {
 	    	System.out.println("APXS: APXS is turning on");
 	    	log.println("APXS turned ON "+dateFormat.format(date));
 	    }
+	    
+	    public void sensorTurnOff(){
+	    	System.out.println("APXS: Sensor is OFF.");
+			log.println("Sensor OFF "+dateFormat.format(date));
+			
+	    }
 		public boolean checkTemp(){
 			int temperature = getTemp();
 			System.out.println("APXS: current temperature is "+temperature+"'C");
 			if(temperature<(-40) && temperature >(-85)){
 				log.println("Temperature is -"+temperature+"'C "+dateFormat.format(date));
+				con_Sensor_ON();
 				return true;
+				
 			}
 			else{
 				log.println("Temperature not compatible : -"+ temperature +"'C "+dateFormat.format(date));
@@ -100,10 +108,22 @@ public class APXS {
 			}else if (message.equalsIgnoreCase("APXS_OFF")){
 				turnOff();
 				return message;
-			}else if (message.equalsIgnoreCase("APXS_RUN")){
+			}else if (message.equalsIgnoreCase("APXS_CHECKTEMP")){
+				checkTemp();
+				return message;
+			}else if(message.equalsIgnoreCase("APXS_RUN")){
 				run();
 				return message;
-			}else{
+			}
+			else if(message.equalsIgnoreCase("APXS_SENSOR_ON")){
+				con_Sensor_ON();
+				return message;
+			}
+			else if(message.equalsIgnoreCase("APXS_SENSOR_OFF")){
+				sensorTurnOff();
+				return message;
+			}
+			else{
 				return "command is not recognized";
 			}
 		}
