@@ -8,13 +8,17 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.URL;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Random;
 
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
@@ -145,11 +149,22 @@ public class APXS {
 	
 		public Object runCommand(String message) {
 			if(i==0){
+				JLabel imageLabel = null;
+	            try {
+	                URL url = new URL("http://i.imgur.com/WOaPXig.gif");
+	                Icon image = new ImageIcon(url);
+	                imageLabel = new JLabel(image);
+	                
+	            } catch (IOException ex) {
+	                System.out.println("");
+	            }
+	            
 			frame = new JFrame( "Mars rover" );
 	        frame.setLayout( new GridLayout( 3,0 ) );
 	        frame.setBounds(10, 30, 0, 0);
 	        frame.getContentPane().setBackground( new Color(255,255,255) );
 	        JPanel buttons = new JPanel(new FlowLayout());
+	        
 	        buttons.setBackground( new Color(255,255,255) );
 	         cmd1 = new JButton( "APXS ON" );
 	        cmd1.setHorizontalTextPosition( SwingConstants.LEFT );
@@ -179,15 +194,16 @@ public class APXS {
 	        area.setLineWrap( true );
 	        JScrollPane sp = new JScrollPane(area);
 	        sp.setBackground(Color.black);
+	       // frame.add(imageLabel);
 	        frame.add(buttons);
 	        frame.add( sp );
-			
-	        //frame.add(cmd1.setPreferredSize(new Dimension(100,100)));
+	        frame.add(imageLabel);
+			//frame.add(cmd1.setPreferredSize(new Dimension(100,100)));
 	        //frame.add(cmd1);
 	        //frame.add(cmd2);
 	        frame.setMinimumSize( new Dimension( 650, 340 ) );
 	        frame.setResizable(false);
-	        
+	        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);;
 	       // frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
 	        frame.setVisible( true );
 			}
