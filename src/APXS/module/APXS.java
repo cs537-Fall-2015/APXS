@@ -73,11 +73,13 @@ public class APXS {
 	    	area.append("\n Sensor is OFF");
 	    	cmd4.setBackground(Color.red);
 	    	cmd3.setBackground(Color.white);
+	    	cmd2.setBackground(Color.white);
 			log.println("Sensor OFF "+dateFormat.format(date));
 			
 	    }
 		public boolean checkTemp(){
 			int temperature = getTemp();
+			cmd2.setBackground(Color.red);
 			System.out.println("APXS: current temperature is "+temperature+"'C");
 			area.append("\n Current temperature is "+temperature+"'C");
 			if(temperature<(-40) && temperature >(-85)){
@@ -98,6 +100,7 @@ public class APXS {
 			System.out.println("APXS: Sensor is ON [as it is in working condition (temperature is between -40'c to -85'c)].");
 			area.append("\n Sensor is ON");
 			cmd3.setBackground(Color.red);
+			cmd2.setBackground(Color.red);
 			log.println("Sensor ON "+dateFormat.format(date));
 			
 		}
