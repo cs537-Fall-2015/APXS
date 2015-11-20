@@ -1,12 +1,14 @@
 package APXS.module;
-
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
+
 import generic.RoverServerRunnable;
 
 public class APXSServer extends RoverServerRunnable {
+   
+
 	public APXSServer(int port) throws IOException {
 		super(port);
 	}
@@ -14,8 +16,10 @@ public class APXSServer extends RoverServerRunnable {
 	@Override
 	public void run() {
 		APXS apxs = new APXS();
+		
 		try {
 			while (true) {
+				//area.append("\n APXS server: waiting for client request.. \n");
 				System.out.println("APXS Server: Waiting for client request");
 				// creating socket and waiting for client connection
 				getRoverServerSocket().openSocket();
@@ -26,7 +30,7 @@ public class APXSServer extends RoverServerRunnable {
 
 				// convert ObjectInputStream object to String
 				String message = (String) inputFromAnotherObject.readObject();
-
+				//area.append("\n Message received from client: "+message.toUpperCase()+"\n");
 				System.out.println("APXS Server: Message Received from Client - " + message.toUpperCase());
 
 				// create ObjectOutputStream object

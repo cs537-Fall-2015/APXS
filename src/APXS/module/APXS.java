@@ -1,5 +1,9 @@
 package APXS.module;
 
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.GridLayout;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -7,20 +11,28 @@ import java.io.PrintWriter;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.Random;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.SwingConstants;
+
 import json.Constants;
 
 public class APXS {
 		private final static boolean ON = true;
 		private final static boolean OFF = false;
+		static JFrame frame;
+		static JTextArea area;
 		static PrintWriter log;
 		private boolean state;
 		static DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+		
 		static Date date = new Date();
-		//System.out.println(dateFormat.format(date)); //2014/08/06 15:59:48
-	    private HashMap<Long, Double> data = new HashMap<Long, Double>();
-	    {
+		{
 	    try{
 	    log = new PrintWriter(
 	    		new BufferedWriter(new FileWriter(Constants.apxs_logpath, true)));
@@ -32,6 +44,7 @@ public class APXS {
 	    public void turnOff(){
 			state = OFF;
 			System.out.println("APXS: APXS is turning off");
+			area.append("\n APXS is turning OFF");
 			log.println("APXS OFF -" +dateFormat.format(date));
 			log.println("");
 			log.close();
@@ -45,24 +58,29 @@ public class APXS {
 	    public void turnOn(){
 	    	state = ON;
 	    	System.out.println("APXS: APXS is turning on");
+	    	area.append("\n APXS is turning ON");
 	    	log.println("APXS turned ON "+dateFormat.format(date));
 	    }
 	    
 	    public void sensorTurnOff(){
 	    	System.out.println("APXS: Sensor is OFF.");
+	    	area.append("\n Sensor is OFF");
 			log.println("Sensor OFF "+dateFormat.format(date));
 			
 	    }
 		public boolean checkTemp(){
 			int temperature = getTemp();
 			System.out.println("APXS: current temperature is "+temperature+"'C");
+			area.append("\n Current temperature is "+temperature+"'C");
 			if(temperature<(-40) && temperature >(-85)){
 				log.println("Temperature is -"+temperature+"'C "+dateFormat.format(date));
+				area.append("\n The temperature is compatible for APXS to work");
 				con_Sensor_ON();
 				return true;
 				
 			}
 			else{
+				area.append("\n Temperature is not favorable for APXS to work. Will try after one hour.");
 				log.println("Temperature not compatible : -"+ temperature +"'C "+dateFormat.format(date));
 				return false;
 			}			
@@ -70,6 +88,7 @@ public class APXS {
 		 
 		public  static void con_Sensor_ON(){
 			System.out.println("APXS: Sensor is ON [as it is in working condition (temperature is between -40'c to -85'c)].");
+			area.append("\n Sensor is ON");
 			log.println("Sensor ON "+dateFormat.format(date));
 			
 		}
@@ -85,23 +104,59 @@ public class APXS {
 	    }
 
 		public void run() {
+			
 			if(!isOn()){
 				System.out.println("APXS: APXS is not on. Please turn on APXS first.");
+				area.append("\n APXS is not ON. Please turn on the APXS first");
 				return;
 			}
 			while(!checkTemp()){
 				try {
 					System.out.println("APXS: current temperature is not in the working condition. Check temperature after one hour");
+					area.append("\n Current temperature is not in working condition. Check temperature after one hour");
 					Thread.sleep(1000);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
 			}
+	
 			con_Sensor_ON();
 			System.out.println("APXS: APXS is gathering the data");
+			area.append("APXS is gathering data..");
 		}
 
 		public Object runCommand(String message) {
+			frame = new JFrame( "Mars rover" );
+	        frame.setLayout( new GridLayout( 3,0 ) );
+	        frame.setBounds(10, 30, 0, 0);
+	        frame.getContentPane().setBackground( new Color(255,255,255) );
+	        JPanel buttons = new JPanel(new FlowLayout());
+	        buttons.setBackground( new Color(255,255,255) );
+	        JButton cmd1 = new JButton( "GET FREQUENCY" );
+	        cmd1.setHorizontalTextPosition( SwingConstants.LEFT );
+	       
+	        JButton cmd2 = new JButton( "GET BANDWIDTH" );
+	        cmd2.setHorizontalTextPosition( SwingConstants.LEFT );
+	        
+	        JButton cmd3 = new JButton( "SEND DATA" );
+	        cmd3.setHorizontalTextPosition( SwingConstants.LEFT );
+	        
+	        JButton cmd4 = new JButton( "PRINT INFO" );
+	        cmd4.setHorizontalTextPosition( SwingConstants.LEFT );
+	        
+	        JButton cmd5 = new JButton( "EXIT" );
+	        cmd5.setHorizontalTextPosition( SwingConstants.LEFT );
+	        
+	        area = new JTextArea();
+	        area.append( " Sending request to client \n " );
+	        area.setEditable( false );
+	        area.setLineWrap( true );
+	        JScrollPane sp = new JScrollPane(area);
+	        frame.add( sp );
+	        // frame.add( textArea );
+	        frame.setMinimumSize( new Dimension( 650, 340 ) );
+	        frame.setResizable(false);
+	        frame.setVisible( true );
 			if (message.equalsIgnoreCase("APXS_ON")){
 				turnOn();
 				return message;
