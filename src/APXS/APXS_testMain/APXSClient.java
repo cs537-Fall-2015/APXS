@@ -39,10 +39,10 @@ public class APXSClient extends RoverClientRunnable {
         buttons.setOpaque(true);
         buttons.setForeground( Color.BLACK );
         area = new JTextArea();
-        area.append( "\n Sending request to Socket Server \n" );
+       // area.append( "\n Sending request to Mars Rover \n" );
         area.setEditable( false );
         area.setLineWrap( true );
-        area.setForeground(Color.GREEN);
+        area.setForeground(Color.black);
         JScrollPane sp = new JScrollPane(area);
         frame.add( sp );
         // frame.add( textArea );
@@ -90,7 +90,7 @@ public class APXSClient extends RoverClientRunnable {
             .println("APXS Testing Framework: Sending request to Socket Server");
             System.out
             .println("=================================================");
-            area.append( "\n Sending request to Socket Server \n" );
+            area.append( "\n Sending request to Mars Rover \n" );
             
             outputToAnotherObject.writeObject(msg);
             

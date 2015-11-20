@@ -31,6 +31,7 @@ public class APXS {
 		static JButton cmd2,cmd3,cmd4,cmd5;
 		static PrintWriter log;
 		private boolean state;
+		static public int i =0;
 		static DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 		
 		static Date date = new Date();
@@ -134,10 +135,11 @@ public class APXS {
 	
 			con_Sensor_ON();
 			System.out.println("APXS: APXS is gathering the data");
-			area.append("APXS is gathering data..");
+			area.append("\n APXS is gathering data..");
 		}
 	
 		public Object runCommand(String message) {
+			if(i==0){
 			frame = new JFrame( "Mars rover" );
 	        frame.setLayout( new GridLayout( 3,0 ) );
 	        frame.setBounds(10, 30, 0, 0);
@@ -162,20 +164,24 @@ public class APXS {
 	        cmd5.setHorizontalTextPosition( SwingConstants.LEFT );
 	        buttons.add(cmd5);
 	        area = new JTextArea();
-	        area.append( " Sending request to client \n " );
+	        area.append( " \n Sending request to client \n " );
 	        area.setEditable( false );
 	        area.setLineWrap( true );
 	        JScrollPane sp = new JScrollPane(area);
 	        sp.setBackground(Color.black);
 	        frame.add(buttons);
 	        frame.add( sp );
+			
 	        //frame.add(cmd1.setPreferredSize(new Dimension(100,100)));
 	        //frame.add(cmd1);
 	        //frame.add(cmd2);
 	        frame.setMinimumSize( new Dimension( 650, 340 ) );
 	        frame.setResizable(false);
+	        
 	       // frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
 	        frame.setVisible( true );
+			}
+	        i++;
 			if (message.equalsIgnoreCase("APXS_ON")){
 				
 				turnOn();
