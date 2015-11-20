@@ -31,19 +31,24 @@ public class APXSClient extends RoverClientRunnable {
 	public void run() {
 		BufferedReader br = null;
 		frame = new JFrame( "Earth Client" );
-        frame.setLayout( new GridLayout( 3,0 ) );
+        frame.setLayout( new GridLayout( 1,0 ) );
         frame.setBounds(10, 30, 0, 0);
-        frame.getContentPane().setBackground( new Color(255,255,255) );
+        //frame.setBackground(Color.BLACK);
+        frame.getContentPane().setBackground( Color.black );
         JPanel buttons = new JPanel(new FlowLayout());
-        buttons.setBackground( new Color(255,255,255) );
+        buttons.setOpaque(true);
+        buttons.setForeground( Color.BLACK );
         area = new JTextArea();
         area.append( "\n Sending request to Socket Server \n" );
         area.setEditable( false );
         area.setLineWrap( true );
+        area.setForeground(Color.GREEN);
         JScrollPane sp = new JScrollPane(area);
         frame.add( sp );
         // frame.add( textArea );
         frame.setMinimumSize( new Dimension( 650, 340 ) );
+       
+        
         frame.setResizable(false);
         frame.setVisible( true );
 		try {

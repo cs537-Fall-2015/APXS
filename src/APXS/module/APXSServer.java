@@ -3,6 +3,10 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
+import javax.swing.JFrame;
+
+import APXS.module.APXS;
+
 
 import generic.RoverServerRunnable;
 
@@ -16,7 +20,6 @@ public class APXSServer extends RoverServerRunnable {
 	@Override
 	public void run() {
 		APXS apxs = new APXS();
-		
 		try {
 			while (true) {
 				//area.append("\n APXS server: waiting for client request.. \n");

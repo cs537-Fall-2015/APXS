@@ -27,6 +27,8 @@ public class APXS {
 		private final static boolean OFF = false;
 		static JFrame frame;
 		static JTextArea area;
+		static JButton cmd1;
+		static JButton cmd2,cmd3,cmd4,cmd5;
 		static PrintWriter log;
 		private boolean state;
 		static DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
@@ -45,6 +47,8 @@ public class APXS {
 			state = OFF;
 			System.out.println("APXS: APXS is turning off");
 			area.append("\n APXS is turning OFF");
+			cmd5.setBackground(Color.red);
+			cmd1.setBackground(Color.white);
 			log.println("APXS OFF -" +dateFormat.format(date));
 			log.println("");
 			log.close();
@@ -56,15 +60,19 @@ public class APXS {
 	    
 	    // Change state
 	    public void turnOn(){
+	    	
 	    	state = ON;
 	    	System.out.println("APXS: APXS is turning on");
 	    	area.append("\n APXS is turning ON");
 	    	log.println("APXS turned ON "+dateFormat.format(date));
+	    	cmd1.setBackground(Color.RED);
 	    }
 	    
 	    public void sensorTurnOff(){
 	    	System.out.println("APXS: Sensor is OFF.");
 	    	area.append("\n Sensor is OFF");
+	    	cmd4.setBackground(Color.red);
+	    	cmd3.setBackground(Color.white);
 			log.println("Sensor OFF "+dateFormat.format(date));
 			
 	    }
@@ -89,6 +97,7 @@ public class APXS {
 		public  static void con_Sensor_ON(){
 			System.out.println("APXS: Sensor is ON [as it is in working condition (temperature is between -40'c to -85'c)].");
 			area.append("\n Sensor is ON");
+			cmd3.setBackground(Color.red);
 			log.println("Sensor ON "+dateFormat.format(date));
 			
 		}
@@ -124,7 +133,7 @@ public class APXS {
 			System.out.println("APXS: APXS is gathering the data");
 			area.append("APXS is gathering data..");
 		}
-
+	
 		public Object runCommand(String message) {
 			frame = new JFrame( "Mars rover" );
 	        frame.setLayout( new GridLayout( 3,0 ) );
@@ -132,19 +141,20 @@ public class APXS {
 	        frame.getContentPane().setBackground( new Color(255,255,255) );
 	        JPanel buttons = new JPanel(new FlowLayout());
 	        buttons.setBackground( new Color(255,255,255) );
-	        JButton cmd1 = new JButton( "GET FREQUENCY" );
+	         cmd1 = new JButton( "APXS ON" );
 	        cmd1.setHorizontalTextPosition( SwingConstants.LEFT );
-	       
-	        JButton cmd2 = new JButton( "GET BANDWIDTH" );
+	        cmd1.setPreferredSize(new Dimension(100,100));
+	        buttons.add(cmd1);
+	       cmd2 = new JButton( "Check Temperature" );
 	        cmd2.setHorizontalTextPosition( SwingConstants.LEFT );
 	        
-	        JButton cmd3 = new JButton( "SEND DATA" );
+	         cmd3 = new JButton( "Sensor ON" );
 	        cmd3.setHorizontalTextPosition( SwingConstants.LEFT );
 	        
-	        JButton cmd4 = new JButton( "PRINT INFO" );
+	        cmd4 = new JButton( "Sensor OFF" );
 	        cmd4.setHorizontalTextPosition( SwingConstants.LEFT );
 	        
-	        JButton cmd5 = new JButton( "EXIT" );
+	        cmd5 = new JButton( "APXS OFF" );
 	        cmd5.setHorizontalTextPosition( SwingConstants.LEFT );
 	        
 	        area = new JTextArea();
@@ -152,12 +162,21 @@ public class APXS {
 	        area.setEditable( false );
 	        area.setLineWrap( true );
 	        JScrollPane sp = new JScrollPane(area);
+	        frame.add(cmd1);
+	        frame.add(cmd2);
+	        frame.add(cmd3);
+	        frame.add(cmd4);
+	        frame.add(cmd5);
 	        frame.add( sp );
-	        // frame.add( textArea );
+	        //frame.add(cmd1.setPreferredSize(new Dimension(100,100)));
+	        //frame.add(cmd1);
+	        //frame.add(cmd2);
 	        frame.setMinimumSize( new Dimension( 650, 340 ) );
 	        frame.setResizable(false);
+	       // frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
 	        frame.setVisible( true );
 			if (message.equalsIgnoreCase("APXS_ON")){
+				
 				turnOn();
 				return message;
 			}else if (message.equalsIgnoreCase("APXS_OFF")){
