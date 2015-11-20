@@ -146,30 +146,28 @@ public class APXS {
 	        buttons.setBackground( new Color(255,255,255) );
 	         cmd1 = new JButton( "APXS ON" );
 	        cmd1.setHorizontalTextPosition( SwingConstants.LEFT );
-	        cmd1.setPreferredSize(new Dimension(100,100));
+	       // cmd1.setPreferredSize(new Dimension(100,100));
 	        buttons.add(cmd1);
+	        
 	       cmd2 = new JButton( "Check Temperature" );
 	        cmd2.setHorizontalTextPosition( SwingConstants.LEFT );
-	        
+	        buttons.add(cmd2);
 	         cmd3 = new JButton( "Sensor ON" );
 	        cmd3.setHorizontalTextPosition( SwingConstants.LEFT );
-	        
+	        buttons.add(cmd3);
 	        cmd4 = new JButton( "Sensor OFF" );
 	        cmd4.setHorizontalTextPosition( SwingConstants.LEFT );
-	        
+	        buttons.add(cmd4);
 	        cmd5 = new JButton( "APXS OFF" );
 	        cmd5.setHorizontalTextPosition( SwingConstants.LEFT );
-	        
+	        buttons.add(cmd5);
 	        area = new JTextArea();
 	        area.append( " Sending request to client \n " );
 	        area.setEditable( false );
 	        area.setLineWrap( true );
 	        JScrollPane sp = new JScrollPane(area);
-	        frame.add(cmd1);
-	        frame.add(cmd2);
-	        frame.add(cmd3);
-	        frame.add(cmd4);
-	        frame.add(cmd5);
+	        sp.setBackground(Color.black);
+	        frame.add(buttons);
 	        frame.add( sp );
 	        //frame.add(cmd1.setPreferredSize(new Dimension(100,100)));
 	        //frame.add(cmd1);
