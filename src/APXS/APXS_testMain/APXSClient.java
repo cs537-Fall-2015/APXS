@@ -36,11 +36,11 @@ public class APXSClient extends RoverClientRunnable {
 							sCurrentLine.equalsIgnoreCase("APXS_MEASURE"))
 						sendMessage(sCurrentLine);
 					else
-						System.out.println("APXS Testing Framework: Wrong command - "+sCurrentLine);
+						System.out.println("APXS Module Testing Framework: Wrong command - "+sCurrentLine);
 				}
 
 			}catch(FileNotFoundException e2){
-				System.out.println("File does not exist. Please try again.");
+				System.out.println("This File does not exist. Please try again.");
 			}catch(IOException e) {
 				e.printStackTrace();
 			}finally {
@@ -76,7 +76,7 @@ public class APXSClient extends RoverClientRunnable {
 			.println("=================================================");
 
 			outputToAnotherObject.writeObject(msg);
-			Thread.sleep(2000);
+			Thread.sleep(3000);
 			// read the server response message
 			inputFromAnotherObject = new ObjectInputStream(getRoverSocket()
 					.getSocket().getInputStream());
@@ -86,7 +86,7 @@ public class APXSClient extends RoverClientRunnable {
 			// close resources
 			inputFromAnotherObject.close();
 			outputToAnotherObject.close();
-			Thread.sleep(1000);
+			Thread.sleep(2000);
 
 		} catch (UnknownHostException e) {
 			e.printStackTrace();
