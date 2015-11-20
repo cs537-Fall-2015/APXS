@@ -28,7 +28,7 @@ public class APXS {
 		static JFrame frame;
 		static JTextArea area;
 		static JButton cmd1;
-		static JButton cmd2,cmd3,cmd4,cmd5;
+		static JButton cmd2,cmd3,cmd4,cmd5,cmd6;
 		static PrintWriter log;
 		private boolean state;
 		static public int i =0;
@@ -50,6 +50,7 @@ public class APXS {
 			area.append("\n APXS is turning OFF");
 			cmd5.setBackground(Color.red);
 			cmd1.setBackground(Color.white);
+			cmd6.setBackground(Color.white);
 			log.println("APXS OFF -" +dateFormat.format(date));
 			log.println("");
 			log.close();
@@ -67,6 +68,7 @@ public class APXS {
 	    	area.append("\n APXS is turning ON");
 	    	log.println("APXS turned ON "+dateFormat.format(date));
 	    	cmd1.setBackground(Color.RED);
+	    	cmd6.setBackground(Color.red);
 	    }
 	    
 	    public void sensorTurnOff(){
@@ -75,12 +77,14 @@ public class APXS {
 	    	cmd4.setBackground(Color.red);
 	    	cmd3.setBackground(Color.white);
 	    	cmd2.setBackground(Color.white);
+	    	cmd6.setBackground(Color.red);
 			log.println("Sensor OFF "+dateFormat.format(date));
 			
 	    }
 		public boolean checkTemp(){
 			int temperature = getTemp();
 			cmd2.setBackground(Color.red);
+			cmd6.setBackground(Color.red);
 			System.out.println("APXS: current temperature is "+temperature+"'C");
 			area.append("\n Current temperature is "+temperature+"'C");
 			if(temperature<(-40) && temperature >(-85)){
@@ -102,6 +106,7 @@ public class APXS {
 			area.append("\n Sensor is ON");
 			cmd3.setBackground(Color.red);
 			cmd2.setBackground(Color.red);
+			cmd6.setBackground(Color.red);
 			log.println("Sensor ON "+dateFormat.format(date));
 			
 		}
@@ -157,12 +162,17 @@ public class APXS {
 	         cmd3 = new JButton( "Sensor ON" );
 	        cmd3.setHorizontalTextPosition( SwingConstants.LEFT );
 	        buttons.add(cmd3);
+	        cmd6 = new JButton("Log");
+	        cmd6.setHorizontalTextPosition( SwingConstants.LEFT );
+	        buttons.add(cmd6);
 	        cmd4 = new JButton( "Sensor OFF" );
 	        cmd4.setHorizontalTextPosition( SwingConstants.LEFT );
 	        buttons.add(cmd4);
 	        cmd5 = new JButton( "APXS OFF" );
 	        cmd5.setHorizontalTextPosition( SwingConstants.LEFT );
 	        buttons.add(cmd5);
+	       
+	
 	        area = new JTextArea();
 	        area.append( " \n Sending request to client \n " );
 	        area.setEditable( false );
