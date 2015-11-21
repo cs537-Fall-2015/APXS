@@ -23,7 +23,7 @@ public class APXSServer extends RoverServerRunnable {
 		try {
 			while (true) {
 				//area.append("\n APXS server: waiting for client request.. \n");
-				System.out.println("APXS Server: Waiting for client request");
+				System.out.println("APXS Module: Waiting for client request");
 				// creating socket and waiting for client connection
 				getRoverServerSocket().openSocket();
 
@@ -34,7 +34,7 @@ public class APXSServer extends RoverServerRunnable {
 				// convert ObjectInputStream object to String
 				String message = (String) inputFromAnotherObject.readObject();
 				//area.append("\n Message received from client: "+message.toUpperCase()+"\n");
-				System.out.println("APXS Server: Message Received from Client - " + message.toUpperCase());
+				System.out.println("APXS Module: Message Received from Client - " + message.toUpperCase());
 
 				// create ObjectOutputStream object
 				ObjectOutputStream outputToAnotherObject = new ObjectOutputStream(

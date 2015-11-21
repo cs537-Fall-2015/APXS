@@ -215,7 +215,7 @@ public class APXS {
 	       
 	
 	        area = new JTextArea();
-	        area.append( " \n Sending request to client \n " );
+	        area.append( " \n Sending response to Testing Framework \n " );
 	        area.setEditable( false );
 	        area.setLineWrap( true );
 	        JScrollPane sp = new JScrollPane(area);

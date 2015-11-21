@@ -49,7 +49,7 @@ public class APXSClient extends RoverClientRunnable {
 
 			try {
 				if(flag == 0){
-				frame = new JFrame( "Earth Client" );
+				frame = new JFrame( "Testing Framework" );
 		        frame.setLayout( new GridLayout( 1,0 ) );
 		        frame.setBounds(10, 30, 0, 0);
 		        //frame.setBackground(Color.BLACK);
@@ -115,10 +115,10 @@ public class APXSClient extends RoverClientRunnable {
             System.out
             .println("=================================================");
             System.out
-            .println("APXS Testing Framework: Sending request to Socket Server");
+            .println("APXS Testing Framework: Sending request to APXS Module");
             System.out
             .println("=================================================");
-            area.append( "\n Sending request to Mars Rover \n" );
+            area.append( "\n Sending request to APXS Module \n" );
             
             outputToAnotherObject.writeObject(msg);
             Thread.sleep(2000);
@@ -126,8 +126,8 @@ public class APXSClient extends RoverClientRunnable {
             inputFromAnotherObject = new ObjectInputStream(getRoverSocket()
                                                            .getSocket().getInputStream());
             String message = (String) inputFromAnotherObject.readObject();
-            System.out.println("APXS Testing Framework received: APXS server response - " + message.toUpperCase());
-            area.append("\n APXS server response: "+message.toUpperCase());
+            System.out.println("APXS Testing Framework received: APXS Module response - " + message.toUpperCase());
+            area.append("\n APXS Module response: "+message.toUpperCase());
             // close resources
             inputFromAnotherObject.close();
             outputToAnotherObject.close();
