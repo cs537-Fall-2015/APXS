@@ -185,7 +185,7 @@ public class APXS {
 	                System.out.println("");
 	            }
 	            
-			frame = new JFrame( "Mars rover" );
+			frame = new JFrame( "APXS Module" );
 	        frame.setLayout( new GridLayout( 3,0 ) );
 	        frame.setBounds(10, 30, 0, 0);
 	        frame.getContentPane().setBackground( new Color(255,255,255) );
