@@ -40,20 +40,10 @@ public class APXSClient extends RoverClientRunnable {
 		while(true){
 			filebr = new BufferedReader(new InputStreamReader(System.in));
 			String sCurrentLine;
-
-			if(fileIncrementer == 0){
 			System.out.println("Enter the file name for the commands: ");
-			}
 			try {
 				filename = filebr.readLine();
 			} catch (IOException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-			try {
-				br = new BufferedReader(new FileReader(Constants.commands+filename));
-			} catch (FileNotFoundException e1) {
-				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
 
@@ -83,7 +73,7 @@ public class APXSClient extends RoverClientRunnable {
 		        flag++;
 		        fileIncrementer++;
 			}
-				
+				br = new BufferedReader(new FileReader(Constants.commands+filename));
 				while ((sCurrentLine = br.readLine()) != null) {
 					if(sCurrentLine.equalsIgnoreCase("APXS_ON")||sCurrentLine.equalsIgnoreCase("APXS_OFF")||
 							sCurrentLine.equalsIgnoreCase("CHECK_TEMPERATURE")||sCurrentLine.equalsIgnoreCase("READ_LOG")||
