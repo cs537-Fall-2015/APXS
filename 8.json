@@ -1,0 +1,146 @@
+{
+  "Type": "SU",
+  "Spectrum": "B011_CS",
+  "element": [
+    {
+      "offset": 0.243045316585218,
+      "const": 0.4433892941202149,
+      "resp": 0.09796568439592734,
+      "elementWeight": 0.37,
+      "umean": 254.70766265669997,
+      "deviation": 27.72161102656647,
+      "numberOfSamples": 23,
+      "Name": "Mn"
+    },
+    {
+      "offset": 0.8621055603075116,
+      "const": 0.6697369219039172,
+      "resp": 1.6623807809856954,
+      "elementWeight": 0.63,
+      "umean": 596.6906863636298,
+      "deviation": 26.894653613486962,
+      "numberOfSamples": 33,
+      "Name": "cl"
+    },
+    {
+      "offset": 0.4968280625068586,
+      "const": 0.7721454423904813,
+      "resp": 1.4919366434396444,
+      "elementWeight": 9.26,
+      "umean": 915.8741211342895,
+      "deviation": 44.58367287965642,
+      "numberOfSamples": 32,
+      "Name": "Al"
+    },
+    {
+      "offset": 0.21197046798488328,
+      "const": 0.16403332721006103,
+      "resp": 1.377773850911304,
+      "elementWeight": 0.47,
+      "umean": 32.16293510496626,
+      "deviation": 19.733555160924443,
+      "numberOfSamples": 0,
+      "Name": "K"
+    },
+    {
+      "offset": -0.8597644984824662,
+      "const": 0.0829979620262159,
+      "resp": 0.27575275273916366,
+      "elementWeight": 0.45,
+      "umean": 677.9324753324776,
+      "deviation": 39.42719466981424,
+      "numberOfSamples": 4,
+      "Name": "Cr"
+    },
+    {
+      "offset": -0.9218143241594814,
+      "const": 0.09997160260492233,
+      "resp": 0.25900784204680516,
+      "elementWeight": 32.0,
+      "umean": 935.6901224088449,
+      "deviation": 3.954188391373953,
+      "numberOfSamples": 35,
+      "Name": "Br"
+    },
+    {
+      "offset": -0.665529085672425,
+      "const": 0.673363152951557,
+      "resp": 0.2835817924694657,
+      "elementWeight": 1.83,
+      "umean": 565.3301414591372,
+      "deviation": 35.57262330214763,
+      "numberOfSamples": 12,
+      "Name": "Na"
+    },
+    {
+      "offset": -0.37426329091998034,
+      "const": 0.8270146593320258,
+      "resp": 0.9731101919795773,
+      "elementWeight": 4.99,
+      "umean": 16.975724305868688,
+      "deviation": 0.17260355431932828,
+      "numberOfSamples": 17,
+      "Name": "S"
+    },
+    {
+      "offset": 0.970802581622036,
+      "const": 0.37878894606749636,
+      "resp": 0.7398847015458241,
+      "elementWeight": 1.04,
+      "umean": 526.6785682356478,
+      "deviation": 29.41880613459913,
+      "numberOfSamples": 20,
+      "Name": "Ti"
+    },
+    {
+      "offset": 0.0613750670437756,
+      "const": 0.587728567204909,
+      "resp": 1.7429004885274835,
+      "elementWeight": 46.3,
+      "umean": 259.73074278679263,
+      "deviation": 34.30141536383937,
+      "numberOfSamples": 25,
+      "Name": "Si"
+    },
+    {
+      "offset": 0.858642257745458,
+      "const": 0.9712476302989432,
+      "resp": 1.062981655562305,
+      "elementWeight": 7.58,
+      "umean": 766.111900674111,
+      "deviation": 18.49081711111627,
+      "numberOfSamples": 34,
+      "Name": "Mg"
+    },
+    {
+      "offset": -0.5185739432328422,
+      "const": 0.4184274768283096,
+      "resp": 1.4234128661881107,
+      "elementWeight": 423.0,
+      "umean": 818.3229854403188,
+      "deviation": 24.168803006583534,
+      "numberOfSamples": 20,
+      "Name": "Ni"
+    },
+    {
+      "offset": 0.3540524976310766,
+      "const": 0.006133393775968443,
+      "resp": 1.3490908413014586,
+      "elementWeight": 7.31,
+      "umean": 841.036350198304,
+      "deviation": 36.993490512664614,
+      "numberOfSamples": 16,
+      "Name": "Ca"
+    },
+    {
+      "offset": -0.23456906023736424,
+      "const": 0.08913815166762118,
+      "resp": 0.1633614948893345,
+      "elementWeight": 18.5,
+      "umean": 419.56519930812686,
+      "deviation": 49.33990901121606,
+      "numberOfSamples": 34,
+      "Name": "Fe"
+    }
+  ]
+}
