@@ -61,6 +61,8 @@ public class APXS {
 			cmd3.setBackground(Color.white);
 	    	cmd2.setBackground(Color.white);
 			cmd6.setBackground(Color.white);
+			cmd3.setBackground(Color.white);
+	    	cmd2.setBackground(Color.white);
 			threadSleep(3000);
 			log.println("APXS OFF -" +dateFormat.format(new Date()));
 			log.println("");
@@ -228,6 +230,7 @@ public class APXS {
 	        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);;
 	       // frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
 	        frame.setVisible( true );
+	        frame.setLocationRelativeTo(null);
 	        flag2++;
 			}
 			if (message.equalsIgnoreCase("APXS_ON")){
@@ -238,7 +241,7 @@ public class APXS {
 				turnOff();
 				return message;
 			}else if (message.equalsIgnoreCase("CHECK_TEMPERATURE")){
-				return checkTemp()? "temperature meets working requirement" : "temperature does not meet working requirement";
+				return checkTemp()? "Temperature meets working requirement" : "temperature does not meet working requirement";
 			}else if(message.equalsIgnoreCase("APXS_MEASURE")){
 				run();
 				return message;
