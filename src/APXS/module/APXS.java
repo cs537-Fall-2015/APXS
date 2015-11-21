@@ -265,7 +265,7 @@ public class APXS {
 				return getLog();
 			}
 			else{
-				return "command is not recognized";
+				return "command is not recognized so please enter valid command for APXS Module";
 			}
 		}
 
