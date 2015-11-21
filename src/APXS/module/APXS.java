@@ -17,7 +17,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Random;
-
+import org.json.simple.JSONObject;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -29,6 +29,7 @@ import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
 
 import json.Constants;
+import json.GlobalReader;
 
 public class APXS {
 		private final static boolean ON = true;
@@ -145,11 +146,11 @@ public class APXS {
 	    }
 
 
-		public void run() {
+		public boolean run() {
 			if(!isOn()){
 				System.out.println("APXS: APXS is not on. Please turn on APXS first.");
 				area.append("\n APXS is not ON. Please turn on the APXS first");
-				return;
+				return false;
 			}
 			while(!checkTemp()){
 				try {
@@ -169,6 +170,7 @@ public class APXS {
 			cmd6.setBackground(Color.red);
 			System.out.println("APXS: APXS is gathering the data");
 			area.append("\n APXS is gathering data..");
+			return true;
 		}
 	
 		public Object runCommand(String message) {
@@ -243,7 +245,12 @@ public class APXS {
 			}else if (message.equalsIgnoreCase("CHECK_TEMPERATURE")){
 				return checkTemp()? "Temperature meets working requirement" : "temperature does not meet working requirement";
 			}else if(message.equalsIgnoreCase("APXS_MEASURE")){
-				run();
+				if(run()){
+					APXSJson apxsjson = new APXSJson(8);
+					GlobalReader greader = new GlobalReader(8);
+					JSONObject obj = greader.getJSONObject();
+					return obj.toString();
+				};
 				return message;
 			}
 			else if(message.equalsIgnoreCase("APXS_SENSOR_ON")){
