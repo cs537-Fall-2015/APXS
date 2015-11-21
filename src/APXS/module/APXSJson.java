@@ -12,23 +12,12 @@ import com.sun.org.apache.bcel.internal.generic.CPInstruction;
 import json.MyWriter;
 
 public class APXSJson {
-	double ev[] ;
+	//double ev[] ;
 	HashMap<String, Double> element = new HashMap<String,Double>();
+	Random random;
 
-	double energy =380.84;
-	double numberOfSamples = (Math.random()*10.00+40);
-	int count = (int) numberOfSamples;	
-	double umean = (Math.random()*1000);
-	double deviation = (Math.random()*50);
-	Random random = new Random();
-	double offset = (double)(random.nextInt(2)-1);
-	double max = (Double)(umean + deviation);
-	double	constCross = (Double)(Math.random()*1.0);
-	double min = (Double)(umean - deviation);
-	double resp = (Double)(Math.random()*2.0);
-
-	public APXSJson(){
-		
+	public APXSJson(int number){
+		random = new Random();
 		element.put("Na",1.83);
 		element.put("Mg", 7.58);
 		element.put("Al", 9.26);
@@ -43,36 +32,49 @@ public class APXSJson {
 		element.put("Fe",18.5);
 		element.put("Ni", 423.00);
 		element.put("Br", 32.00);
-		//Iterator iterator = element.entrySet().iterator();
-		double[] ev = new double[count];
-		double[] cps = new double[count];
-		for(double d : element.values()){
-			for (int j = 0; j < count; j++) {
-				cps[j] = (Double) ((offset + (constCross* resp *d)) + 
-						((1 - constCross) * resp *   (Math.random()* (max-min) + min)));	
-			}
+		JSONArray elementarray = new JSONArray();
+		for(String key : element.keySet()){
+			JSONObject ele = new JSONObject();
+			ele.put("Name", key);
+			ele.put("elementWeight", element.get(key));
+			ele.put("offset", randomOffset());
+			ele.put("resp", randomResp());
+			ele.put("numberOfSamples", randomNumberOfSamples());
+			ele.put("const", randomConst());
+			ele.put("umean", randomUmean());
+			ele.put("deviation", randomDev());
+			elementarray.add(ele);
 		}
-
-		for (int i = 0; i<count;i++){
-			ev[i] = energy;
-			energy = energy+(Math.random()*10.00+30);
-		}
-		JSONArray eV = new JSONArray();
-		JSONArray countPerSec = new JSONArray();
-		for(int j = 0; j < count; j++){
-			eV.add(ev[j]);
-			countPerSec.add(cps[j]);
-		}
+		
 		JSONObject obj = new JSONObject();
-		obj.put("ev", eV);
-		obj.put("countPerSec", countPerSec);
-		System.out.println(obj);
-
-		MyWriter mywriter = new MyWriter(obj, 9017);
-
+		obj.put("Spectrum", "B011_CS");
+		obj.put("Type", "SU");
+		obj.put("element", elementarray);
+		MyWriter mywriter = new MyWriter(obj, number);
 	}
-	public static void main(String[] args) {
-		APXSJson apxsjon = new APXSJson();
+
+	private double randomDev() {
+		return (Math.random()*50);
+	}
+
+	private double randomUmean() {
+		return (Math.random()*1000);
+	}
+
+	private double randomConst() {
+		return (Math.random()*1.0);
+	}
+
+	private int randomNumberOfSamples() {
+		return random.nextInt(40);
+	}
+
+	private double randomResp() {
+		return Math.random()*2.0;
+	}
+
+	private double randomOffset() {
+		return Math.random()*2 - 1;
 	}
 }
 
