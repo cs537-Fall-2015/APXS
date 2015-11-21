@@ -25,6 +25,8 @@ public class APXSClient extends RoverClientRunnable {
 	static JFrame frame = new JFrame();
 	static JTextArea area = new JTextArea();
 	static int flag= 0;
+	static int InputIncrementer =0;
+	String filename; 
 	public APXSClient(int port, InetAddress host) throws UnknownHostException {
 		super(port, host);
 	}
@@ -32,10 +34,29 @@ public class APXSClient extends RoverClientRunnable {
 	@Override
 	public void run() {
 		BufferedReader filebr = null;
-		String filename;  
+		 
 		BufferedReader br = null;
 		
 		while(true){
+			filebr = new BufferedReader(new InputStreamReader(System.in));
+			String sCurrentLine;
+			if(InputIncrementer == 0){
+			System.out.println("Enter the file name for the commands: ");
+			}
+			try {
+				filename = filebr.readLine();
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			try {
+				br = new BufferedReader(new FileReader(Constants.commands+filename));
+			} catch (FileNotFoundException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			
+			InputIncrementer++;
 			try {
 				if(flag == 0){
 				frame = new JFrame( "Earth Client" );
@@ -61,11 +82,7 @@ public class APXSClient extends RoverClientRunnable {
 		        frame.setVisible( true );
 		        flag++;
 			}
-				filebr = new BufferedReader(new InputStreamReader(System.in));
-				String sCurrentLine;
-				System.out.println("Enter the file name for the commands: ");
-				filename = filebr.readLine();
-				br = new BufferedReader(new FileReader(Constants.commands+filename));
+				
 				while ((sCurrentLine = br.readLine()) != null) {
 					if(sCurrentLine.equalsIgnoreCase("APXS_ON")||sCurrentLine.equalsIgnoreCase("APXS_OFF")||
 							sCurrentLine.equalsIgnoreCase("CHECK_TEMPERATURE")||sCurrentLine.equalsIgnoreCase("READ_LOG")||

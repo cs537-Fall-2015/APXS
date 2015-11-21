@@ -58,6 +58,8 @@ public class APXS {
 			area.append("\n APXS is turning OFF");
 			cmd5.setBackground(Color.red);
 			cmd1.setBackground(Color.white);
+			cmd3.setBackground(Color.white);
+	    	cmd2.setBackground(Color.white);
 			cmd6.setBackground(Color.white);
 			threadSleep(3000);
 			log.println("APXS OFF -" +dateFormat.format(new Date()));
@@ -151,6 +153,8 @@ public class APXS {
 				try {
 					System.out.println("APXS: current temperature is not in the working condition. Check temperature after one hour");
 					area.append("\n Current temperature is not in working condition. Check temperature after one hour");
+					cmd1.setBackground(Color.red);
+					cmd6.setBackground(Color.red);
 					Thread.sleep(3000);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
@@ -158,6 +162,9 @@ public class APXS {
 			}
 	
 			con_Sensor_ON();
+			cmd1.setBackground(Color.RED);
+			cmd3.setBackground(Color.red);
+			cmd6.setBackground(Color.red);
 			System.out.println("APXS: APXS is gathering the data");
 			area.append("\n APXS is gathering data..");
 		}
