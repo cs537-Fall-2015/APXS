@@ -14,7 +14,7 @@ import json.MyWriter;
 public class APXSJson {
 	double ev[] ;
 	HashMap<String, Double> element = new HashMap<String,Double>();
-	
+
 	double energy =380.84;
 	double numberOfSamples = (Math.random()*10.00+40);
 	int count = (int) numberOfSamples;	
@@ -26,8 +26,9 @@ public class APXSJson {
 	double	constCross = (Double)(Math.random()*1.0);
 	double min = (Double)(umean - deviation);
 	double resp = (Double)(Math.random()*2.0);
-	
-	{
+
+	public APXSJson(){
+		
 		element.put("Na",1.83);
 		element.put("Mg", 7.58);
 		element.put("Al", 9.26);
@@ -46,28 +47,32 @@ public class APXSJson {
 		double[] ev = new double[count];
 		double[] cps = new double[count];
 		for(double d : element.values()){
-	for (int j = 0; j < count; j++) {
-		cps[j] = (Double) ((offset + (constCross* resp *d)) + 
-				((1 - constCross) * resp *   (Math.random()* (max-min) + min)));	
+			for (int j = 0; j < count; j++) {
+				cps[j] = (Double) ((offset + (constCross* resp *d)) + 
+						((1 - constCross) * resp *   (Math.random()* (max-min) + min)));	
+			}
+		}
+
+		for (int i = 0; i<count;i++){
+			ev[i] = energy;
+			energy = energy+(Math.random()*10.00+30);
+		}
+		JSONArray eV = new JSONArray();
+		JSONArray countPerSec = new JSONArray();
+		for(int j = 0; j < count; j++){
+			eV.add(ev[j]);
+			countPerSec.add(cps[j]);
+		}
+		JSONObject obj = new JSONObject();
+		obj.put("ev", eV);
+		obj.put("countPerSec", countPerSec);
+		System.out.println(obj);
+
+		MyWriter mywriter = new MyWriter(obj, 9017);
+
 	}
-	}
-		
-	for (int i = 0; i<count;i++){
-		ev[i] = energy;
-		energy = energy+(Math.random()*10.00+30);
-	}
-	JSONArray eV = new JSONArray();
-	JSONArray countPerSec = new JSONArray();
-	for(int j = 0; j < count; j++){
-		eV.add(ev[j]);
-		countPerSec.add(cps[j]);
-	}
-	JSONObject obj = new JSONObject();
-	obj.put("ev", eV);
-	obj.put("countPerSec", countPerSec);
-	System.out.println(obj);
-	
-	MyWriter mywriter = new MyWriter(obj, 9017);
-	
+	public static void main(String[] args) {
+		APXSJson apxsjon = new APXSJson();
 	}
 }
+
